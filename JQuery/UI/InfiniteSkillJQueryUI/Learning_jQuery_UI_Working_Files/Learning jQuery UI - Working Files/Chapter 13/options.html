@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Dialog configurable options</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <div title="Dialog title" id="myWidget">
+        <p>This is the dialog content</p>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#myWidget').dialog({
+            dialogClass: 'extra class names',
+            closeOnEscape: false,
+            modal: true,
+            closeText: 'Dismiss',
+            draggable: false
+        });
+    </script>
+</body>
+</html>

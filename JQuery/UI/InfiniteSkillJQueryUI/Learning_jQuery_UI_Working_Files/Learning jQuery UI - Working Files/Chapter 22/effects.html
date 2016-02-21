@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI effects</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        #target { width: 100px; height: 100px; border: 1px solid #000; background-color: #00ff21; }
+        #transfer { width: 200px; height: 200px; position: absolute; right: 20px; bottom: 20px; border: 1px solid #000 }
+        .ui-effects-transfer { border: 3px solid red; }
+    </style>
+</head>
+<body>
+    <div id="target"></div>
+    <div id="transfer"></div>
+    <button id="animate">Animate!</button>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        //$('#animate').on('click', function () {
+        //    $('#target').effect('shake', {
+        //        direction: 'up',
+        //        distance: 50,
+        //        times: 6
+        //    });
+        //});
+        //$('#animate').on('click', function () {
+        //    $('#target').effect('size', {
+        //        to: {
+        //            width: 200,
+        //            height: 200
+        //        }
+        //    });
+        //});
+        $('#animate').on('click', function () {
+            $('#target').effect('transfer', {
+                to: '#transfer'
+            });
+        });
+    </script>
+</body>
+</html>

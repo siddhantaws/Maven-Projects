@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Dialog buttons</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <div title="Dialog title" id="myWidget">
+        <p>This is the dialog content</p>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var dialogAccept,
+            widget = $('#myWidget');
+        widget.dialog({
+            buttons: {
+                'Okay': function () {
+                    dialogAccept = true;
+                    widget.dialog('close');
+                },
+                'Cancel': function () {
+                    dialogAccept = false;
+                    widget.dialog('close');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

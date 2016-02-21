@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Default functionality</title>
+<link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+	.dropheader{height:200px;width:500px;background-color:red;text-align:center}
+	
+	#draggable{height:100px;width:100px;background-color:gray;text-align:center}
+	.changecolor{background-color:gray}
+  </style>
+  <script>
+  $(function() {
+    $( "#draggable ,.name,.place" ).draggable({containment:'document',revert:false});
+	$("#droppable" ).droppable({hoverClass:'changecolor',tolerance:'touch',accept:'.name',
+	over:function(){$("#spantext").text("Somethng has over");} , 
+	out:function(){$("#spantext").text('Somethng has out');} ,
+	drop:function(){$("#spantext").text('Somethng has drop');},
+	created:function(){$("#spantext").text('Somethng has created');}
+	});
+	});
+  </script>
+</head>
+<body>
+<div  class="name">Shyam</div> / 
+<div  class="name">Ram</div> /  
+<div  class="place">Alex</div> 
+<div id="draggable" class="ui-widget-content"> 
+ Drag me to my target
+</div>
+ 
+<div id="droppable" class="dropheader">
+ Drop here
+</div>
+<span id="spantext">hi </span>
+</body>
+</html>

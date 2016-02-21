@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+</head>
+	
+<body>
+		<input type="text" value=""/>
+ 	<script>
+		$(document).ready(function(e)
+		{
+			$(':text').focusin(function() {
+					$(this).css('background-color','#009'); 
+            });
+			$(':text').blur(function(e) {
+                	$(this).css('background-color','#0F9'); 
+            });
+        });
+	</script>
+</body>
+</html>

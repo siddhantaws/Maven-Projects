@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI :tabbable selector</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <input id="tab1" value="Is tabbable" />
+    <input id="tab2" value="Is not tabbable" tabindex="-1" />
+    <p id="tab3" tabindex="2">Is tabbable</p>
+    <p id="tab4">Is not tabbable</p>
+    <a id="tab5" href="#somewhere">Is tabbable</a>
+    <a id="tab6" href="#somewhereElse" tabindex="-1">Is not tabbable</a>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var els = $(':tabbable');
+        console.log(els);
+    </script>
+</body>
+</html>

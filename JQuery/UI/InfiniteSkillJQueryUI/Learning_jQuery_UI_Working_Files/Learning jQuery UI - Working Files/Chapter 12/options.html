@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Spinner configurable options</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <input id="myWidget" />
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#myWidget').spinner({
+            //min: -5,
+            //max: 5,
+            icons: {
+                up: 'ui-icon-plusthick',
+                down: 'ui-icon-minusthick'
+            },
+            incremental: function (spinsSoFar) {
+                return spinsSoFar * Math.sqrt(Math.PI);
+            }
+        });
+    </script>
+</body>
+</html>

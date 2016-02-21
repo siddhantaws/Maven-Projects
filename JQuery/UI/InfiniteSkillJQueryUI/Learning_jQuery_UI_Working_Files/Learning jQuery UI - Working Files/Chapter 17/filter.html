@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Selectable filtering</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        body { padding: 0; }
+        #myWidget { margin: 20px; padding: 20px; }
+        span { display: inline-block; padding: 2px 7px; border: 1px solid #000; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <div id="myWidget">
+        <span class="selectme">Can be selected</span>
+        <span class="dontselectme">Can't be selected</span>
+        <span class="selectme">Can be selected</span>
+        <span class="dontselectme">Can't be selected</span>
+        <span class="selectme">Can be selected</span>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#myWidget').selectable({
+            filter: '.selectme',
+            cancel: '.dontselectme'
+        });
+    </script>
+</body>
+</html>

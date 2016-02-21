@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+
+  </style>
+  <script>
+	$(document).ready(function(){
+		$('#submit').bind('click',function(){
+		$('#dialog').attr('title','save Your change').text('Your changes are saved').dialog({buttons:{'Ok':function(){
+			//$(this).dialog('close');
+		},'not Ok':function(){}
+			//$(this).dialog('close');
+		} ,closeOnEscape:false,draggable:false,resizable:true,show:'bounce',modal:true,position:'middle'
+		});
+	});
+	});
+	
+  </script>
+</head>
+<body>
+	<input type="submit" id="submit" value="submit"/>
+	<div id="dialog"></div>
+</body>
+</html>

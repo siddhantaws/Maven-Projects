@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+	#pb{
+		width :505px;
+	}	
+  </style>
+  <script>
+	$(document).ready(function()
+	{
+		var val=0
+		var interval=setInterval(function()
+		{
+			val=val+1
+			$('#pb').progressbar({value:val,max:'100',complete:function(event, ui )
+			{
+				//alert('comp');
+			}});
+			$('#precentage').text(val+'%');
+			if(val==100)
+				clearInterval(interval);
+		},50);
+	});
+		
+  </script>
+</head>
+<body>
+	<input type="submit" id="submit" value="submit"/>
+	<div id="pb"></div>
+	<div id="precentage"></div>
+</body>
+</html>

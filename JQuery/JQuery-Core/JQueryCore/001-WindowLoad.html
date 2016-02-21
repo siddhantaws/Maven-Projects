@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-ui.js"></script>
+</head>
+	
+<body>
+	<iframe src="http://google.co.uk"></iframe>
+    <iframe src="http://www.ebay.co.uk"></iframe>
+    <iframe src="http://www.flipkart.co.in"></iframe>
+    <script>
+		$(window).load(function (e){
+			alert('Loaded ... ');
+			});
+	</script>
+</body>
+</html>

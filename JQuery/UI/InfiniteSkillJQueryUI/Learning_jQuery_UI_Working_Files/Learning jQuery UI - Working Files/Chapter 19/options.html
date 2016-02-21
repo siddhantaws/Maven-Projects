@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Draggable configuration options</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        #myWidget { width: 200px; height: 200px; border:1px solid #000; position:relative }
+        #handle { width: 10px; height: 10px; top: 0; left: 0; position: absolute; background-color: pink; }
+    </style>
+</head>
+<body>
+    <div id="myWidget">
+        <span id="handle"></span>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#myWidget').draggable({
+            addClasses: false,
+            cursor: 'move',
+            //cursorAt: {
+            //    top: 0,
+            //    left: 0
+            //},
+            handle: '#handle',
+            revert: true,
+            revertDuration: 100
+        });
+    </script>
+</body>
+</html>

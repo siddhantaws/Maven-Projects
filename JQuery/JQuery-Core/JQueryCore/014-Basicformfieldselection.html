@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<style>
+	.highlights{
+			background-color:#CF9
+		}	
+</style>
+</head>
+	
+<body>
+		<form action="#" method="post">
+        	<p>Username : <input type="text" /></p>
+            <p>Password : <input type="text" /></p>
+            <input type="submit" value="submit"/>
+        </form>
+ 	<script>
+		$(document).ready(function(e)
+		{
+			$(':text').focusin(function(){
+					$(this).addClass('highlights');
+				}).blur(function(){
+					$(this).removeClass('highlights');
+					});
+					
+        });
+	</script>
+</body>
+</html>

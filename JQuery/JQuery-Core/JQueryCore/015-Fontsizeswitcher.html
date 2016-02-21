@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<style>
+	.highlights{
+			background-color:#CF9
+		}	
+</style>
+</head>
+	
+<body>
+		Change Font size <a href="#">Bigger</a>   <a href="#">Smaller</a>  
+		<p>
+        	This is Text
+        </p>
+ 	<script>
+			$(document).ready(function() 
+			{
+            	$('a').on('click',function(){
+					changeText( $('p'),$(this).text())});			    
+            });
+			
+	</script>
+    <script>		
+        function changeText(obj,font)
+		{
+			var size=parseInt(obj.css('font-size'));
+			if(font=='Bigger')
+			{
+				size=size+2;				
+				obj.css('font-size',size+'px');	
+			}else
+			{
+				size=size-2;
+				obj.css('font-size',size+'px');	
+			}
+		}
+	</script>
+</body>
+</html>

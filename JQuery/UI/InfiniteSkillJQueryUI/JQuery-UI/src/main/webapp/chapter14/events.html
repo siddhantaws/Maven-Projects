@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Autocomplete events</title>
+          <link rel="stylesheet" href="../JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="../JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="../JQuery-UI/jquery-ui.js"></script>
+
+</head>
+<body>
+    <input id="myWidget"/>
+    <script>
+        var data = ['alpha', 'beta', 'gamma'],
+            widget = $('#myWidget');
+
+        widget.autocomplete({
+            source: data,
+            minLength: 0,
+            search: function () {
+                console.log('search');
+            },
+            response: function () {
+                console.log('response');
+            },
+            open: function () {
+                console.log('open');
+            },
+            focus: function () {
+                console.log('focus');
+            },
+            select: function () {
+                console.log('select');
+            },
+            close: function () {
+                console.log('close');
+            },
+            change: function () {
+                console.log('change');
+            }
+        });
+    </script>
+</body>
+</html>

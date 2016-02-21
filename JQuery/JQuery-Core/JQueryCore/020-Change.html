@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<style>
+</style>
+</head>
+	
+<body>
+	<select >
+    	<option >Text1</option>
+		<option >Text2</option>
+        <option >Text3</option>
+    </select>
+    
+    <span id="spanIds"></span>
+ 	<script>
+		$(document).ready(function(e)
+		{
+			
+			$('select').change(function(e) {
+               $('#spanIds').html($(this).val()); 
+            });
+        });
+	</script>
+</body>
+</html>

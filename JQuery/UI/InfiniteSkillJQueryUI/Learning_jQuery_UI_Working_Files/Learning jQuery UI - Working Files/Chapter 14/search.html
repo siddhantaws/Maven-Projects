@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Autocomplete methods</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <input id="myWidget"/>
+    <button id="search">Show suggestions</button>
+    <button id="close">Close</button>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var data = ['alpha', 'beta', 'gamma'],
+            widget = $('#myWidget');
+
+        widget.autocomplete({
+            source: data,
+            minLength: 0
+        });
+
+        $('#search').on('click', function () {
+            widget.autocomplete('search', '');
+        });
+
+        $('#close').on('click', function () {
+            widget.autocomplete('close');
+        });
+    </script>
+</body>
+</html>

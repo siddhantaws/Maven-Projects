@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Showing and hiding the Datepicker</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <input id="myWidget"/>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#myWidget').datepicker({
+            showAnim: 'explode',
+            showOptions: {
+                pieces: 16
+            },
+            beforeShow: function (input, datepicker) {
+                var currentSettings = datepicker.settings,
+                    mySettings = {
+                        showAnim: 'slideDown'
+                    },
+                    newSettings = $.extend(currentSettings, mySettings);
+
+                $(input).addClass('opened');
+            }
+        });
+    </script>
+</body>
+</html>

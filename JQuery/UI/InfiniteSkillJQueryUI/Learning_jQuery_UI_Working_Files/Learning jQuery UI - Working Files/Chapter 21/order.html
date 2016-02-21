@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Sortable order</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <ul id="myWidget">
+        <li id="sortable1_item1">Item 1</li>
+        <li id="sortable1_item2">Item 2</li>
+        <li id="sortable1_item3">Item 3</li>
+    </ul>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var widget = $('#myWidget');
+        widget.sortable({
+            update: function () {
+                var itemArray = widget.sortable('toArray');
+                console.log(itemArray);
+                var itemString = widget.sortable('serialize');
+                console.log(itemString);
+            }
+        });
+    </script>
+</body>
+</html>

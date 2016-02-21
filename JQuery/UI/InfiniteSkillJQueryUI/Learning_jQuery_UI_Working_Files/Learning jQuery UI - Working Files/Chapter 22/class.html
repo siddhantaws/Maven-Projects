@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Class transitions</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        #change { width: 200px; height: 200px; background-color: green; }
+        #change.otherClass { width: 400px; height: 400px; background-color: pink ; border: 10px solid purple;  }
+    </style>
+</head>
+<body>
+    <div id="change"></div>
+    <button id="add">Add new class</button>
+    <button id="remove">Remove new class</button>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#add').on('click', function () {
+            $('#change').addClass('otherClass', 2000);
+        });
+        $('#remove').on('click', function () {
+            $('#change').removeClass('otherClass', 2000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Progressbar widget</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        #instructions { width: 40%; margin: auto; }
+        #instructions div { display:none; padding:20px; }
+        div#page1 { display: block; }
+    </style>
+</head>
+<body>
+    <article id="instructions">
+        <div id="page1">
+            <h1>Page 1</h1>    
+            <p>Do something...</p>
+            <a href="#page2">Next page</a>
+        </div>
+        <div id="page2">
+            <h1>Page 2</h1>
+            <p>Do something else...</p>
+            <a href="#page3">Next page</a>
+        </div>
+        <div id="page3">
+            <h1>Page 3</h1>
+            <p>Do this other thing...</p>
+            <a href="#page4">Next page</a>
+        </div>
+        <div id="page4">
+            <h1>Page 4</h1>
+            <p>Finally, it's done!</p>
+            <a href="#page1">Restart</a>
+        </div>
+    </article>
+    <div id="myWidget"></div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var container = $('#instructions'),
+            widget = $('#myWidget');
+
+        function page() {
+            return window.location.hash || '#page1'
+        }
+
+        function pageNumber(page) {
+            return parseInt(page.split('#page')[1], 10)
+        }
+
+        function showPage(page) {
+            container.find('div').hide();
+            $(page).show();
+        }
+
+        function updateProgress(pageNumber) {
+            widget.progressbar({
+                max: 4,
+                value: pageNumber
+            });
+        }
+
+        $(window).on('hashchange', function () {
+            showPage(page());
+            updateProgress(pageNumber(page()));
+        });
+
+        (function () {
+            showPage(page());
+            updateProgress(pageNumber(page()));
+        }());
+    </script>
+</body>
+</html>

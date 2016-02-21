@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<style>
+	.bold{
+			font-weight:bold;
+		}
+</style>
+</head>
+	
+<body>
+		<a href="#">A Liknk</a>
+ 	<script>
+		$(document).ready(function(e)
+		{
+			/*$('a').mouseenter(function(e) {
+                $(this).addClass('bold');
+            }).mouseleave(function(e) {
+                $(this).removeClass('bold');
+            });;*/
+			/*$('a').bind('mouseenter',function(){
+				$(this).addClass('bold');
+				}).bind('mouseleave',function(){
+			$(this).removeClass('bold');
+					});	*/
+			$('a').bind('mouseenter mouseleave'	,function(){
+				$(this).toggleClass('bold');
+				
+				});					
+        });
+	</script>
+</body>
+</html>

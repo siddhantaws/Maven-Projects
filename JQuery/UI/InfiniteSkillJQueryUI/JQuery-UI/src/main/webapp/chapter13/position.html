@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Dialog</title>
+ <link rel="stylesheet" href="../JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="../JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="../JQuery-UI/jquery-ui.js"></script>
+
+</head>
+<body>
+	<div id="appendTo">
+        
+    </div>
+    <div id="myWidget">
+        <p>This is the dialog content</p>
+    </div>
+    <script>
+        $('#myWidget').dialog({
+				position:{
+						my:'center top+50',
+						at:'center top',
+						of:window
+					}, appendTo:'#appendTo'
+			});
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Button configurable options</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <button class="mybutton" id="button1">A regular button</button>
+    <div id="radios">
+        <input id="radio1" type="radio" name="radioset" value="one" /><label for="radio1">Play</label>
+        <input id="radio2" type="radio" name="radioset" value="two" /><label for="radio2">Fast-forward</label>
+        <input id="radio3" type="radio" name="radioset" value="three" /><label for="radio3">Skip track</label>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#button1').button({
+            icons: {
+                primary: 'ui-icon-folder-collapsed',
+                secondary: 'ui-icon-unlocked'
+            }
+        });
+        $('#radio1').button({
+            icons: {
+                primary: 'ui-icon-triangle-1-e'
+            },
+            label: false
+        });
+        $('#radio2').button({
+            icons: {
+                primary: 'ui-icon-carat-1-e'
+            },
+            label: false
+        });
+        $('#radio3').button({
+            icons: {
+                primary: 'ui-icon-arrowthickstop-1-e'
+            },
+            label: false
+        });
+        $('#radios').buttonset();
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #draggable { width: 150px; height: 150px; padding: 0.5em; }
+  </style>
+  <script>
+ // $(function() {$("#draggable").draggable({containment : 'window'});});
+  //$(function() {$("#draggable").draggable({containment : 'document',opacity : 0.6});});
+  $(function() {
+  //$("#draggable").draggable().disabled();
+  $("#draggable").draggable({containment : 'parent',opacity : 0.6 , 
+	start :function()
+	{
+			$('#displaytext').html('Drag Started');
+	},
+	stop:function()
+	{
+		$('#displaytext').html('Drag Stopped');
+	},
+	drag:function(event, ui)
+	{
+		$('#displaytext').html('Draged');
+	},
+	create:function()
+	{
+		$('#displaytext').html('Created');
+	}
+  });
+  });
+
+  </script>
+</head>
+<body>
+<div id="parent_draggable" style="width: 800px; height: 600px;background-color : gray; "> 
+<div id="draggable" class="ui-widget-content">
+  <p>Drag me around</p>
+</div>
+<span id="displaytext"></span>
+</div> 
+ 
+</body>
+</html>

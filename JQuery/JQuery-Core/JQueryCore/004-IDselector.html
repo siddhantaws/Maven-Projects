@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+</head>
+	
+<body>
+		<input type="text" id="textid" value="Hello "/>
+        <input type="button" id="button1" value="Hello Button"/>
+        <p id="pid">this is Paragraph</p>
+ 	<script>
+		$(document).ready(function(e) {
+       		var textId =$('#textid').val();
+			alert(textId);     
+        });
+		$(document).ready(function(e) {
+       		var count =$('#button1').val();
+			alert(count);     
+        });	
+		$(document).ready(function(e) {
+       		var count =$('#pid').text();
+			alert(count);     
+        });	
+	</script>
+</body>
+</html>

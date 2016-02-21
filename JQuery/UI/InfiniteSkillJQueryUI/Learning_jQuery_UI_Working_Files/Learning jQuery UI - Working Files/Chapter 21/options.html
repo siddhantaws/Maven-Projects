@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Sortable configurable options</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        .myplaceholder { border: 1px dashed #000; visibility:visible }
+    </style>
+</head>
+<body>
+    <ul id="myWidget">
+        <li class="sortable">Item 1<span class="handle">+</span></li>
+        <li>Item 2<span class="handle">+</span></li>
+        <li class="sortable">Item 3<span class="handle">+</span></li>
+    </ul>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#myWidget').sortable({
+            placeholder: 'myplaceholder',
+            revert: true,
+            handle: '.handle',
+            opacity: .5,
+            items: '.sortable'
+        });
+    </script>
+</body>
+</html>

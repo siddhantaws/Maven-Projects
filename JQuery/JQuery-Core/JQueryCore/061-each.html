@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<style>
+	.highlights{
+			background-color:#CF9
+		}	
+</style>
+</head>
+	
+<body>
+		<input type="text" /> <input type="text" />  <input type="text" />
+        <input type="button" id="combine"/>
+	<script>
+			$(document).ready(function() 
+			{
+				$('#combine').on('click',function(){
+					var combineText;
+						$('input[type="text"]').each(function(index, element) {
+                          	var value   ,
+							value=$(this).val();
+							if(value==null && value.length==0)
+							{
+								alert('Please enter value');	
+							}else
+							{
+								combineText=+combineText+$(this).val();	
+							}	
+                        });
+						if(combineText!=null)
+						alert(combineText);
+					});
+            });
+	</script>
+    
+</body>
+</html>

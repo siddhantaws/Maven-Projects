@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Droppable interaction helper</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        #myWidget { width: 200px; height: 200px; border: 1px solid #000; z-index: 1000; }
+        #target { width: 400px; height: 400px; border: 1px solid #000; position: absolute; bottom: 10px; right: 10px; }
+    </style>
+</head>
+<body>
+    <div id="myWidget"></div>
+    <div id="target"></div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#myWidget').draggable();
+        $('#target').droppable();
+    </script>
+</body>
+</html>

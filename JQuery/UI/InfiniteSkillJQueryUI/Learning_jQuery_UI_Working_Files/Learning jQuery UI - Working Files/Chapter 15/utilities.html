@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Datepicker utility functions</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <input id="myWidget"/>
+    <button id="us">Change to US</button>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="../js/jquery.ui.datepicker-fr.js"></script>
+    <script>
+        $('#myWidget').datepicker({
+            beforeShowDay: $.datepicker.noWeekends
+        });
+
+        $('#us').on('click', function () {
+            $.datepicker.setDefaults($.datepicker.regional[""]);
+        });
+
+        var dateString = $.datepicker.formatDate('DD d MM yy', new Date());
+        console.log(dateString);
+        console.log($.datepicker.parseDate('DD d MM yy', dateString));
+        console.log($.datepicker.iso8601Week(new Date()));
+    </script>
+</body>
+</html>

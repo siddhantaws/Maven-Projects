@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+	.resize{
+				height : 100px;width:100px;background-color:gray;
+			}
+	.outerresize{
+				height : 500px;width:400px;background-color:red;
+			}		
+  </style>
+  <script>
+	$(document).ready(function()
+	{
+		$('#resize').resizable({containment:'parent',animate:true,ghost:true, animateDuration:'slow',animateEasing:'swing'
+		//handles:'all'
+		//,maxHeight:200,maxWidth:200,delay:200,
+		,autoHide:true,
+		//disabled:true
+		distance:50
+		});
+	});
+  </script>
+</head>
+<body>
+<div id="outerresize" class="outerresize">
+<div id="resize" class="resize">
+	
+</div>	
+</div>	
+</body>
+</html>

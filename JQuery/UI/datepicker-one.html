@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+	#main{
+		height:600px;
+	}
+  </style>
+  <script>
+  $(document).ready(function()
+  {
+  $('#datepicker').datepicker({dateFormat:'dd-mm-yy',minDate:0,maxDate:'+1m +2d',showButtonPanel:true,showAnim:'fadeIn',altField:'#altfiled',
+  autoSize:true,buttonText: 'Choose',changeMonth: false,closeText: 'Close'
+  });
+  });
+		
+  </script>
+</head>
+<body>
+	<input type="text" id="datepicker" size="2" length="2"/>
+	<!-- <input type="text" id="altfiled"/> -->
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Dialog methods</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <div title="Dialog title" id="myWidget">
+        <p>This is the dialog content</p>
+    </div>
+    <button id="open">Open the dialog</button>
+    <button id="close">Close the dialog</button>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var widget = $('#myWidget');
+        widget.dialog({
+            autoOpen: false
+        });
+        $('#open').on('click', function () {
+            widget.dialog('open');
+            console.log(widget.dialog('isOpen'));
+        });
+        $('#close').on('click', function () {
+            widget.dialog('close');
+            console.log(widget.dialog('isOpen'));
+        });
+    </script>
+</body>
+</html>

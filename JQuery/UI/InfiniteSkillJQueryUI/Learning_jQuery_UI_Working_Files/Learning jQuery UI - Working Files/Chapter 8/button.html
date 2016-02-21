@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Button widget</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+
+</head>
+<body>
+    <button class="mybutton" id="button1">A regular button</button>
+    <button class="mybutton" type="submit" id="button2">A submit button</button>
+    <input class="mybutton" type="button" id="button3" value="An input button" />
+    <div id="radios">
+        <input id="radio1" type="radio" name="radioset" value="one" /><label for="radio1">Only one</label>
+        <input id="radio2" type="radio" name="radioset" value="two" /><label for="radio2">may be</label>
+        <input id="radio3" type="radio" name="radioset" value="three" /><label for="radio3">Selected</label>
+    </div>
+    <div id="checks">
+        <input id="check1" type="checkbox" name="checkset" value="one" /><label for="check1">Mutiple buttons</label>
+        <input id="check2" type="checkbox" name="checkset" value="two" /><label for="check2">may be</label>
+        <input id="check3" type="checkbox" name="checkset" value="three" /><label for="check3">Selected</label>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('.mybutton').button();
+        $('#radios').buttonset();
+        $('#checks').buttonset();
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<style>
+	.highlights{
+			background-color:#CF9
+		}	
+</style>
+</head>
+	
+<body>
+		<input type="file" />
+        <input type="submit"/>
+ 	<script>
+			$(document).ready(function() 
+			{
+            	$('input[type="file"]').change(function(e) {
+                    $(this).next().removeAttr('disabled');
+                }).next().attr('disabled','disabled');
+            });
+			
+	</script>
+</body>
+</html>

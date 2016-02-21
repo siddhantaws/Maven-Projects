@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Default functionality</title>
+<link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+	ul{
+		padding:0px;
+		list-type:none;
+	}
+  </style>
+  <script>
+	$(document).ready(function()
+	{
+		$('#names ,#places').sortable({containment:'parent',tolerance:'pointer',cursor:'pointer',revert:true,opacity:0.6,connectWith:'#names,#places',
+		axis:'X',cancel:'#names', delay: 1500,
+		update:function()
+		{
+			//alert($(this).text());
+		}});
+	});
+  </script>
+</head>
+<body>
+<div id="namesdiv">
+	<ul id="names">
+		<li>Alex</li>
+		<li>Zion</li>
+		<li>Barlcays</li>
+	</ul>
+	
+	<ul id="places">
+		<li>New York</li>
+		<li>New Delhi</li>
+		<li>California</li>
+		<li>IndianaPolis</li>
+	</ul>
+	
+</div>	
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<style>
+	.list{
+			list-style:none;
+			padding:0px;
+			
+		}	
+</style>
+</head>
+	
+<body>
+          <ul class="list">
+          	<li>Apple</li>
+            <li>Ball</li>
+            <li>Cat</li>
+            <li>Dog</li>
+          </ul>
+      <script>
+			$(document).ready(function() 
+			{
+				/*$('.list').click(function(){
+					
+					$('.list li:first').append("First");
+					
+					$('.list li:last').append("Last");
+					});*/
+				$('.list').click(function(){
+					
+					$('.list').find('li').first().next().append('Second');					
+					$('.list').find('li').last().append('Last');
+					});	
+	        });
+	</script>
+    
+</body>
+</html>

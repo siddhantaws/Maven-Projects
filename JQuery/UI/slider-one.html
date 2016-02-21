@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+	#pb{
+		width :505px;
+	}	
+  </style>
+  <script>
+	$(document).ready(function()
+	{
+		$('#sl').slider({min:0 ,max:100 ,step:5 ,values:[20,40] ,
+		slide:function(event,ui){$('#value').html(ui.values[0]+"   "+ui.values[1]);},animate:'slow'
+		//orientation:'vertical'
+		//,stop:function(event,ui){alert(ui.value)}
+		});
+	});
+		
+  </script>
+</head>
+<body>
+	
+	<div id="sl"></div>
+	<div id="value"></div>
+</body>
+</html>

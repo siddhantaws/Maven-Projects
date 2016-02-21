@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Tab events</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        .spinner { display: block; width: 32px; height: 32px; margin-top: -50px; margin-bottom: 70px; }
+    </style>
+</head>
+<body>
+    <div id="myWidget">
+        <ul>
+            <li><a href="#panel1">Tab1</a></li>
+            <li><a href="tabcontent.txt">Tab2</a></li>
+        </ul>
+        <div id="panel1">
+            <p>This is tab panel 1</p>
+        </div>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var panel2 = $('#panel2');
+
+        $('#myWidget').tabs({
+            beforeLoad: function (e, ui) {
+                if (!ui.panel.contents().length) {
+                    $('<img/>', {
+                        src: 'ajax-loader.gif',
+                        'class': 'spinner'
+                    }).appendTo(ui.panel).position({
+                        of: '#myWidget'
+                    });
+                }
+            },
+            load: function (e, ui) {
+                ui.panel.find('img').remove();
+            }
+        });
+    </script>
+</body>
+</html>

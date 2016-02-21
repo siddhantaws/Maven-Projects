@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Tooltip positioning</title>
+  <link rel="stylesheet" href="../JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="../JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="../JQuery-UI/jquery-ui.js"></script>
+</head>
+<body>
+    <p title="With a tooltip" style="float:left">This is a regular paragraph element</p>
+    <script>
+		$(document).tooltip({
+				position:{
+						my:'left-center',
+						at:'right+10 center'
+					}
+			});
+    </script>
+</body>
+</html>

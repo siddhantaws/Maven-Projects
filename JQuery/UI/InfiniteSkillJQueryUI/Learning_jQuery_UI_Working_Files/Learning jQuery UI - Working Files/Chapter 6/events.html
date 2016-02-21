@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Progressbar events</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <div id="myWidget"></div>
+    <input id="progressValue" value="0" />
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var widget = $('#myWidget'),
+            input = $('#progressValue'),
+            progress = 0,
+            timer = window.setInterval(function () {
+                if (progress <= 100) {
+                    progress = progress + 10;
+
+                    widget.progressbar('option', 'value', progress);
+                }
+            }, 100);
+
+        widget.progressbar({
+            change: function () {
+                input.val(widget.progressbar('option', 'value'));
+            },
+            complete: function () {
+                input.remove();
+                if (!$('#complete').length) {
+                    $('<p id="complete">Complete!</p>').insertAfter(widget);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

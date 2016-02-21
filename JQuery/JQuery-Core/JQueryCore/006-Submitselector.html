@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+</head>
+	
+<body>
+		<input type="submit" value="Submit1"/>
+		<input type="submit" value="Submit2"/>
+        <input type="submit" value="Submit3"/>        		
+ 	<script>
+		$(document).ready(function(e) 
+		{
+			$(':submit').click(function(e) {
+	             alert($(this).val());
+            });
+        });
+		$(document).ready(function(e) 
+		{
+			$(':submit').click(function(e) {
+	             $(this).attr('value','Please wait .....');
+            });
+        });
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<style>
+	
+</style>
+</head>
+	
+<body>
+	  <a href="#">Double Click</a>  
+    	<ul style="display:none">
+        	<li>First</li>
+        	<li>Second</li>            
+        </ul>
+ 	<script>
+		$(document).ready(function(e)
+		{
+			$('a').dblclick(function(e) 
+			{
+            	$('ul').show();    
+            });
+        });
+	</script>
+</body>
+</html>

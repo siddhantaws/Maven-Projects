@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Menu widget</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <div id="menu" style="float:left;width:150px;">
+        <div><a href="">Item 1</a></div>
+        <div><a href="">Item 2</a>
+            <div class="menu">
+                <div><a href="">Subitem 1</a></div>
+                <div><a href="">Subitem 2</a></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#menu').menu({
+            menus: '.menu'
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Dialog positioning</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <div id="container"></div>
+    <div title="Dialog title" id="myWidget">
+        <p>This is the dialog content</p>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#myWidget').dialog({
+            position: {
+                my: 'center top+50',
+                at: 'center top',
+                of: window
+            },
+            appendTo: '#container',
+            modal: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Slider widget</title>
+       <link rel="stylesheet" href="../JQuery-UI/jquery-ui.css">
+      <script type="text/javascript" src="../JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="../JQuery-UI/jquery-ui.min.js"></script>
+</head><li></li>
+<body>
+    <div id="myWidget"></div>
+    <input type="text" id="input"/>
+    <script>
+		var input=$('#input');
+        $('#myWidget').slider({
+				step:10,
+				orientation:'vertical', 
+				slide:function(w,ui){
+						input.val(ui.value);				
+				}});
+		input.on('change'	,function(){
+				$('#myWidget').slider('option',value,input.val());
+			});
+    </script>
+</body>
+</html>

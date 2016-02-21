@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Menu widget</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        #menu { float: left;}
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li><a href="#">Item 1</a></li>
+        <li><a href="#">Item 2</a>
+            <ul>
+                <li><a href="#">Subitem 1</a></li>
+                <li><a href="#">Subitem 2</a>
+                    <ul>
+                        <li><a href="#">Subsubitem 1</a></li>
+                        <li><a href="#">Subsubitem 2</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <button id="item2">Open Item 2 submenu</button>
+    <button id="subitem2">Open Subitem 2 submenu</button>
+    <button id="select">Select Subsubitem 2</button>
+    <button id="close">Close submenus</button>
+    
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var menu = $('#menu');
+        menu.menu();
+
+        $('#item2').on('click', function (e) {
+            menu.menu('focus', e.type, menu.find('li').eq(1));
+            menu.menu('expand');
+        });
+
+        $('#subitem2').on('click', function (e) {
+            menu.menu('focus', e.type, menu.find('li').eq(3));
+            menu.menu('expand');
+        });
+
+        $('#select').on('click', function () {
+            menu.menu('focus', e.type, menu.find('li').eq(5));
+            menu.menu('select', e.type);
+        });
+
+        $('#close').on('click', function () {
+            menu.menu('collapse', e.type);
+        });
+    </script>
+</body>
+</html>

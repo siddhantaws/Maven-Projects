@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #draggable { width: 150px; height: 150px; padding: 0.5em; }
+  </style>
+  <script>
+ // $(function() {$("#draggable").draggable({containment : 'window'});});
+  //$(function() {$("#draggable").draggable({containment : 'document',opacity : 0.6});});
+ // $(function() {$("#draggable").draggable({containment : 'parent',opacity : 0.6});});
+ //$(function() {$("#draggable").draggable({axis: "x"});});
+// $(function() {$("#draggable").draggable({cursor: "crosshair"});});
+//$(function() {$("#draggable").draggable({cursorAt: { right: 5 });});
+//$(function() {$("#draggable").draggable({revert:true,revertDuration:600});});
+//$(function() {$("#draggable").draggable({disabled:false});});
+//$(function() {$("#draggable").draggable({delay:300});});
+//$(function() {$("#draggable").draggable({distance:200});});
+//$(function() {$("#draggable").draggable({helper:'clone'});});
+$(function() {$("#draggable").draggable({snap:true });});
+  </script>
+</head>
+<body>
+<div id="parent_draggable" style="width: 450px; height: 450px;background-color : gray; "> 
+<div id="draggable" class="ui-widget-content">
+  <p>Drag me around</p>
+</div>
+</div> 
+ 
+</body>
+</html>

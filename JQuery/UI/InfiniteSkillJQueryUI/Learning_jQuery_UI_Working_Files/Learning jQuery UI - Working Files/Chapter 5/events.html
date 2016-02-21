@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Accordion events</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <div id="myWidget">
+        <h3>Section 1</h3>
+        <div>
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        </div>
+        <h3>Section 2</h3>
+        <div>
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        </div>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#myWidget').accordion({
+            create: function () {
+                console.log('The widget has been created');
+            },
+            //beforeActivate: function (e, ui) {
+            //    if (ui.newHeader.attr('id') !== 'ui-accordion-myWidget-header-1') {
+            //        return false;
+            //    }
+            //},
+            activate: function (e, ui) {
+                var activePanel = ui.newPanel.attr('id').split('-')[4];
+                console.log('The active panel is now: ', activePanel);
+            }
+        });
+    </script>
+</body>
+</html>

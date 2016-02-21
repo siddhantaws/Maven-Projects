@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+</head>
+<body>
+     <textarea id="test" rows="10"  cols="4" maxlength="55"></textarea> 
+    <div></div>
+ 	<script>
+			$(document).ready(function() 
+			{
+          		$('div').html("50 charatcter availble") ; 	
+				$('#test').keyup(function(e) {
+                    var available,
+					available=$(this).val().length;
+					$('div').html(50-available+" charatcter availble") ; 		
+                });
+            });
+			
+	</script>
+</body>
+</html>

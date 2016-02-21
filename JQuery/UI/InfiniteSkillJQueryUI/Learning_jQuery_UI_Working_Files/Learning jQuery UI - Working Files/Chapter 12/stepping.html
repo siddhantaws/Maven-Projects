@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Spinner stepping</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <button id="stepDown">Step down</button>
+    <button id="stepUp">Step up</button>
+    <input id="myWidget" />
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var widget = $('#myWidget');
+        widget.spinner({
+            step: 50
+        });
+
+        $('#stepDown').on('click', function () {
+            widget.spinner('stepDown');
+        });
+        $('#stepUp').on('click', function () {
+            widget.spinner('stepUp');
+        });
+    </script>
+</body>
+</html>

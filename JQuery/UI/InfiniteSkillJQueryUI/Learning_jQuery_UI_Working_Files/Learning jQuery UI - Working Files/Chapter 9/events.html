@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Slider widget</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        input { width: 50px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div id="myWidget"></div>
+    <input id="sliderValue" value="0" />
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var widget = $('#myWidget'),
+            input = $('#sliderValue');
+        widget.slider({
+            slide: function (e, ui) {
+                input.val(ui.value);
+            }
+        });
+
+        input.on('change', function () {
+            widget.slider('option', 'value', input.val());
+        });
+    </script>
+</body>
+</html>

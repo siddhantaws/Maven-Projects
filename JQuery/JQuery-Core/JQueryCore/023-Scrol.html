@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<style>
+</style>
+</head>
+	
+<body>
+	<textarea id="textareads"  value="Thidadmsakjldlsakjjdkasdmasdmlkasjdashiuadjkjasdkjasihdasujdaskjsdnfjnsdfdsjfsdojfsdjfjisdfjsdiojfsifsdoifjsdiofjiosdjfsdjifjsdjfsdoifsdjoifijooifs">
+    </textarea>
+    <span id="spanid"></span>
+ 	<script>
+		$(document).ready(function(e)
+		{
+			$('#textareads').scroll(function(){
+				$('#spanid').html($(this).scrollTop());
+				});
+        });
+	</script>
+</body>
+</html>

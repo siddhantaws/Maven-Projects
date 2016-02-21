@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI :focusable selector</title>
+<link rel="stylesheet" href="../JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="../JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="../JQuery-UI/jquery-ui.js"></script></head>
+<body>
+    <input id="focus1" value="Is focusable" />
+    <input id="focus2" style="display:none" value="Is not focusable" />
+    <p id="focus3" tabindex="2" >Is focusable</p>
+    <p id="focus4">Is not focusable</p>
+    <a id="focus5" href="#somewhere">Is focusable</a>
+    <a id="focus6">Is not focusable</a>
+</script>
+    <script>
+        var els = $(':focusable');
+        console.log(els);
+    </script>
+</body>
+</html>

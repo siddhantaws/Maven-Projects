@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Position utility</title>
+    <link rel="stylesheet" href="../JQuery-UI/jquery-ui.css">
+    <style>
+        #target { position: absolute; width: 100px; height: 100px; background-color: #ffcc00; }
+        #positionee { width: 100px; height: 100px; background-color: #17aa17; }
+        #positioners { width: 150px; }
+        button { width: 40px; padding: 10px 0; }
+    </style>
+      <script type="text/javascript" src="../JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="../JQuery-UI/jquery-ui.js"></script>
+</head>
+<body>
+    <div id="target">
+        <p>The target</p>
+    </div>
+    <div id="positionee">
+        <p>The positionee</p>
+    </div>
+    <div id="positioners">
+        <button data-myposition="right bottom" data-atposition="left top" id="topleft">NW</button>
+        <button data-myposition="bottom" data-atposition="top" id="top">N</button>
+        <button data-myposition="left bottom" data-atposition="right top" id="topright">NE</button>
+        <button data-myposition="right" data-atposition="left" id="left">W</button>
+        <button data-myposition="centre" data-atposition="center" id="centrecentre">MID</button>
+        <button data-myposition="left" data-atposition="right" id="right">E</button>
+        <button data-myposition="right top" data-atposition="left bottom" id="bottomleft">SW</button>
+        <button data-myposition="top" data-atposition="bottom" id="bottom">S</button>
+        <button data-myposition="left top" data-atposition="right bottom" id="bottomright">SE</button>
+    </div>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#target').position({of:window.document});
+		$('#positioners').on('click', 'button', function () {
+            var button = $(this),
+                positions = {
+                    my: button.attr('data-myposition'),
+                    at: button.attr('data-atposition'),
+                    of: $('#target')
+                };
+            $('#positionee').position(positions);
+        });
+    </script>
+</body>
+</html>

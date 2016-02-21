@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI focus() method</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body id="body">
+    <a id="anchor1" href="somewhere.html">Will be focused</a>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        console.log(document.activeElement.id + ' is focused');
+
+        $('#anchor1').focus(1000, function () {
+            console.log(document.activeElement.id + ' is focused');
+        });
+
+        $('#anchor1').on('focus', function () {
+            console.log('A bound focus handler was invoked');
+        });
+    </script>
+</body>
+</html>

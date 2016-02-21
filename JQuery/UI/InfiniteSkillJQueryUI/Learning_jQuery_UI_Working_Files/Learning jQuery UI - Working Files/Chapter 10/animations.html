@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Tooltip widget</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <p title="With a tooltip">This is a regular paragraph element</p>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $(document).tooltip({
+            show: {
+                effect: 'drop',
+                direction: 'up'
+            },
+            hide: {
+                effect: 'fold',
+                duration: 300
+            }
+        });
+    </script>
+</body>
+</html>

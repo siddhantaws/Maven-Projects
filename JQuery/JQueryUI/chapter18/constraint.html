@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Resizable constraint</title>
+      <link rel="stylesheet" href="../JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="../JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="../JQuery-UI/jquery-ui.js"></script>
+
+    <style>
+        #parent { width: 800px; height: 600px; border: 1px solid #000; }
+        #myWidget { width: 200px; height: 200px; border:1px solid #000; z-index: 100; }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="myWidget"></div>
+    </div>
+    <script>
+        $('#myWidget').resizable({
+            containment: '#parent',
+            aspectRatio: true,
+            grid: [50, 50]
+        });
+    </script>
+</body>
+</html>

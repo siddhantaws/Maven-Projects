@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+	#main{
+		height:600px;
+	}
+  </style>
+  <script>
+	$(document).ready(function()
+	{
+		$('#content').accordion({fillSpace:true,collapsible:true ,
+		icons : {'header':'ui-icon-plus','headerSelected':'ui-icon-minus'}	,active:1,animate:2000,heightStyle: 'fill'
+		//,event:'mouseover'
+		});
+	});
+  </script>
+</head>
+<body>
+	<div id="main">
+	<div id="content">
+			<h3><a href="#">About me</a></h3>	
+			<div>A little about me .I am software Devloper</div>		
+			<h3><a href="#">Technologies</a></h3>	
+			<div>Java ,CPP , Hibernate</div>
+			<h3><a href="#">Contact US</a></h3>	
+			<div>India China Nepal</div>
+	</div>
+</div>	
+</body>
+</html>

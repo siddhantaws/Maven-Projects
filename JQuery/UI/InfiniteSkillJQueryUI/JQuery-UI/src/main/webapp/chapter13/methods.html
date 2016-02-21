@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Dialog</title>
+ <link rel="stylesheet" href="../JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="../JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="../JQuery-UI/jquery-ui.js"></script>
+
+</head>
+<body>
+    <div id="myWidget" title="This is my dialog">
+        <p>This is the dialog content</p>
+    </div>
+    <input type="button" id="open"  value="Open"/>
+    <input type="button" id="close"  value="Close"/>
+    <script>
+        $('#myWidget').dialog({
+				autoOpen:false
+			});
+		$('#open').on('click',function(){
+			$('#myWidget').dialog('open'); 				
+			});	
+		$('#close').on('click',function(){
+			$('#myWidget').dialog('close'); 				
+			});		
+    </script>
+</body>
+</html>

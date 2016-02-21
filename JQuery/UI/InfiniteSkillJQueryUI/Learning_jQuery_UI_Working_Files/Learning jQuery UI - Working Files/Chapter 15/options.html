@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Datepicker basic configurable options</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <input id="myWidget"/>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $('#myWidget').datepicker({
+            changeYear: true,
+            yearRange: '2000:c+20',
+            changeMonth: true,
+            defaultDate: '-7d',
+            appendText: 'Required format: MM/DD/YYYY'
+        });
+    </script>
+</body>
+</html>

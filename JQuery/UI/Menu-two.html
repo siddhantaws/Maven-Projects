@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="JQuery-UI/jquery-ui.css">
+  <script type="text/javascript" src="JQuery-UI/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="JQuery-UI/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+	#pb{
+		width :505px;
+	}	
+  </style>
+  <script>
+	$(document).ready(function()
+	{
+		$('#menu').tabs({cookie:{expires:2}}).find('.ui-tabs-nav').sortable();
+	});
+	 $( document ).tooltip();	
+  </script>
+</head>
+<body>
+	<div id="menu">
+		<ul>
+			<li><a href="#aboutme">About Me</a></li>
+			<li><a href="#contactus">Contact us</a></li>
+			<li><a href="#portfolio">Portfolio</a></li>
+			<li><a href="sortablae-one.html">Seminar</a></li>
+		</ul>	
+		<div id="aboutme">
+			This is About me .
+		</div>
+		<div id="contactus">
+			This is contactus .
+		</div>
+		<div id="portfolio">
+			This is portfolio
+		</div>
+	</div>
+	<select name="speed" id="speed">
+      <option>Slower</option>
+      <option>Slow</option>
+      <option selected="selected">Medium</option>
+      <option>Fast</option>
+      <option>Faster</option>
+    </select>
+	<input id="age" title="We ask for your age only for statistical purposes.">
+</body>
+</html>

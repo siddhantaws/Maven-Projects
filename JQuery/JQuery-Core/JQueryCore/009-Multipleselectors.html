@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Window Load</title>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+</head>
+	
+<body>
+		<input type="submit" value="Submit"/>
+		<input type="text" value="Submit"/>
+        <p>This is Paragraph</p>
+        
+ 	<script>
+		$(document).ready(function(e)
+		{
+			$('input:text , p').click(function(){
+					alert('Event handler');
+				});
+		});
+	</script>
+</body>
+</html>

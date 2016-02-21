@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Extending Autocomplete</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+</head>
+<body>
+    <input id="myWidget"/>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        var data = ['alpha', 'beta', 'gamma'],
+            widget = $('#myWidget');
+
+        $.widget('ui.autocomplete', $.ui.autocomplete, {
+            _renderItem: function (ul, item) {
+                var li = $('<li>').addClass('ui-menu-item').attr('role', 'presentation').appendTo(ul),
+                    a = $('<a>').addClass('ui-corner-all').html('<span>' + item.label + '</span>').appendTo(li);
+
+                return li;
+            },
+            _renderMenu: function (ul, items) {
+                var that = this;
+
+                $.each(items, function (index, item) {
+                    that._renderItemData(ul, item);
+                });
+
+                $(ul).wrap('<div>');
+            }
+        });
+
+        widget.autocomplete({
+            source: data
+        });
+    </script>
+</body>
+</html>

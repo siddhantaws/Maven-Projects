@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Java Servlet JSON</title>
+<script src="JQuery-UI/jquery-1.11.1.js"></script>
+ 
+<!-- bootstrap just to have good looking page -->
+<link href="bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" />
+ 
+<!-- we code these -->
+<script type="text/javascript" src="js/myfunctions.js"></script>
+ 
+</head>
+ 
+<body>
+ 
+    <h1 style="text-align:center">JSONP<br></h1> 
+ 
+    <!-- article inputs -->
+    <div class="article" style="margin:10px;">
+        <div class="input-prepend">
+            <span class="add-on">Zip Code</span>
+            <input class="span4" id="zip" name="title" type="text" placeholder="Article Title..." onkeyUp="sendGet();">
+        </div>
+        <br/>
+         <div class="input-prepend">
+            <span class="add-on">Country</span>
+            <input class="span4" id="Country" name="Country" type="text" placeholder="http://...">
+        </div>
+        <br/>
+        <div class="input-prepend">
+            <span class="add-on">City</span>
+            <input class="span4" id="city" name="url" type="text" placeholder="http://...">
+        </div>
+        <br/>
+        <div class="input-prepend">
+            <span class="add-on">State</span>
+            <input class="span2" id="State" name="categories" type="text" placeholder="category1;category2;...">
+        </div>
+    </div>
+ 
+</body> 
+</html>

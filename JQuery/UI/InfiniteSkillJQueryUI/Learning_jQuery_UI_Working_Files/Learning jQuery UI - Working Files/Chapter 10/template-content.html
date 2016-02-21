@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Tooltip widget</title>
+    <link rel="stylesheet" href="../css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+        .ui-tooltip h1 { margin: 0 0 .5em 0; float:left ; font-size: 1em; }
+        .ui-tooltip img { width: 4em; border: 1px solid #808080; margin-right: .5em; float:left; }
+        .ui-tooltip p { width: 60%; margin: 0; float: left; font-size: .9em; }
+
+    </style>
+</head>
+<body>
+    <p title="With a tooltip">This is a regular paragraph element</p>
+    <script id="tooltip-template" type="text/x-handlebars-template">
+        <img src="{{avatar}}" alt="{{author}}" />
+        <h1>{{author}}</h1>
+        <p>{{description}}</p>
+    </script>
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="../js/handlebars-v1.3.0.js"></script>
+    <script>
+        var source = $('#tooltip-template').html(),
+            template = Handlebars.compile(source),
+            context = {
+                author: 'Dan Wellman',
+                avatar: 'me.jpg',
+                description: 'Dan is an author and front-end engineer'
+            },
+            markup = template(context);
+        $(document).tooltip({
+            content: markup
+        });
+
+    </script>
+</body>
+</html>
