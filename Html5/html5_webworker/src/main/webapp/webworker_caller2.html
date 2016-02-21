@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h3>Send data (in a form of JavaScript array) to the worker and then see how the worker responds.</h3>
+  <p>
+    Message from the worker:
+    <output id="message"></output>
+  </p>
+
+  <script>
+    var worker = new Worker('webworker_task2.js');
+
+    worker.addEventListener('message', function(e) {
+      document.getElementById('message').innerHTML = e.data;
+    }, false);
+
+    worker.postMessage({name:'Sang Shin', age:99}); // Send data to our worker.
+  </script>
+</body>
+</html>

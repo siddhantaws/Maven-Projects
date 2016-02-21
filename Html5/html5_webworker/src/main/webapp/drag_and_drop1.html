@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style type="text/css">
+   #dnd_target {width:350px;height:100px;padding:10px;border:1px solid #aaaaaa;}
+  </style>
+	<script>
+
+	function dragstart_event_handler(event) {
+		console.log("dragstart_event_handler enterted, event.target.id = " + event.target.id)
+		event.dataTransfer.setData("Text", event.target.id);
+	}
+
+	function ondragover_event_handler(event) {
+		// By cancelling this event, we’re telling the browser this element 
+		// that we’re over is the one you can release and drop upon.
+		//console.log("ondragover_event_handler enterted, event.target.id = " + event.target.id)
+		event.preventDefault();
+	}
+
+	function ondragenter_event_handler(event) {
+		console.log("ondragenter_event_handler enterted, event.target.id = " + event.target.id)
+		document.getElementById(event.target.id).setAttribute("style", "border: 10px solid #aaaaaa"); 
+	}
+
+	function ondragleave_event_handler(event) {
+		console.log("ondragleave_event_handler enterted, event.target.id = " + event.target.id)
+		document.getElementById(event.target.id).setAttribute("style", "border: 1px solid #aaaaaa"); 
+	}
+
+	function drop_event_handler(event) {
+
+		console.log("drop_event_handler enterted, event.target.id = " + event.target.id)
+
+		// Cancel the default browser action. This is to ensure that if we 
+		// drop a link, the browser doesn’t go off and surf to that location
+		event.preventDefault();
+
+		// Get the contents out of the dataTransfer object
+		var data = event.dataTransfer.getData("Text");
+
+		// Add dnd source element (img element in this example) as a child
+		console.log("data = " + data)
+		event.target.appendChild(document.getElementById(data));
+
+		// Play windstorm audio for 5 seconds
+		document.getElementById('myAudio').play()
+    // Change the style
+		document.getElementById(event.target.id).setAttribute("style", "border: 10px solid"); 
+	}
+</script>
+</head>
+<body>
+
+	<p>Drag the duke image into the rectangle and listen to the windstorm audio </p>
+
+	<div id="dnd_target" ondrop="drop_event_handler(event)" 
+	                     ondragover="ondragover_event_handler(event)" 
+	                     ondragenter="ondragenter_event_handler(event)"
+	                     ondragleave="ondragleave_event_handler(event)"></div>
+	<br>
+	<img id="dnd_source" src="images/duke.jpg" draggable="true" ondragstart="dragstart_event_handler(event)" width="100" height="100">
+
+	<audio id="myAudio">
+		<source src="audio/windstorm.ogg#t=,5" type="audio/ogg">
+		<source src="audio/windstorm.mp3t=,5" type="audio/mp3">
+			Your browser does not support HTML5 Audio
+	</audio>
+</body>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New CSS3 Properties</title>
+	<style>
+	
+	.tabs {
+		border: 4px solid rgba(0,0,0,0.5);
+		width: 400px;
+		margin: 0 auto;
+		padding: 0px;
+		list-style: none;
+		border-radius:10px; 
+		
+	}
+	.tab:FIRST-CHILD .tab-name{
+		border-top-right-radius:8px;
+		border-top-left-radius:8px;
+	}  
+	.tab:LAST-CHILD .tab-name{
+		border-bottom-right-radius:8px;
+		border-bottom-left-radius:8px;
+	}  
+	.tab {
+		border-bottom: 1px solid #aaa;
+	}
+	.tab:last-child {
+		border-bottom: none;
+	}
+	.tab-name {
+		background-color: #cfc;
+		font-size: 24px;
+		text-align: center;
+		text-shadow: 100px 0px 0px rgba(255,0,0,.5),
+						-100px 0px 0px rgba(0,255,0,.5);
+		-webkit-box-shadow:  2px 3px 6px rgba(0,0,0,.5);
+						
+	}
+	.tab-content {
+		background-color: #fcc;
+		display: none;
+	}
+
+	.tab:hover .tab-content {
+		display: block;
+	}
+
+	.tabs:hover .tab {
+		display: none;
+	}
+	.tabs:hover .tab:hover {
+		display: block;
+	}
+
+	</style>
+</head>
+<body>
+	<ul class="tabs">
+		<li class="tab">
+			<div class="tab-name">Tab 1</div>
+			<div class="tab-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti magnam ipsam deserunt facere ex suscipit explicabo maiores. Eius, temporibus, earum, tempora delectus atque et autem quasi amet quos natus iste error nesciunt officiis at laudantium omnis quisquam sit consectetur. Aliquam, neque ipsa officiis dolore dolorem illo esse possimus sit quam! ipsum dolor sit amet, consectetur adipisicing elit. Quod, voluptatem.</div>
+		</li>
+		<li class="tab">
+			<div class="tab-name">Tab 2</div>
+			<div class="tab-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, adipisci, accusantium, dolorum, similique reprehenderit nesciunt suscipit perspiciatis optio beatae incidunt libero quibusdam asperiores quasi sequi quis natus fugiat hic illo dicta necessitatibus possimus consequuntur earum laborum voluptas culpa corrupti assumenda ab repellat a magni praesentium aperiam vel qui tempore sint explicabo tempora minima nemo veniam cum voluptatum voluptate voluptates sed commodi quos harum! Quo, necessitatibus, inventore ducimus tempore consectetur nulla qui modi natus consequuntur possimus placeat repellendus quod commodi voluptatem. ipsum dolor sit amet, consectetur adipisicing elit. Quas repellendus quia excepturi fuga vitae exercitationem delectus? Quidem id magni provident!</div>
+		</li>
+		<li class="tab">
+			<div class="tab-name">Tab 3</div>
+			<div class="tab-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, amet, officiis, in, temporibus eaque maxime vitae laborum soluta repellendus quam sunt assumenda quia sed obcaecati earum perferendis qui unde vel vero aliquid alias rem nisi dolorum dicta iste laudantium sint et error corporis ipsa minima necessitatibus suscipit recusandae. Adipisci, non ab labore nesciunt officia libero saepe ea soluta inventore optio. ipsum dolor sit amet, consectetur adipisicing elit. Excepturi dignissimos dolor eos ut impedit temporibus.</div>
+		</li>
+	</ul>
+</body>
+</html>

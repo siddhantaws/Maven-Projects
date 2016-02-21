@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>CSS3 Transformations</title>
+<link rel="stylesheet" media="all" href="styless/styles.css" />
+</head>
+<body>
+
+<h1>CSS3 3D Transformations</h1>
+
+<div id="stage">
+
+	<div id="mybox1">3D Box 1</div>
+	<div id="mybox2">3D Box 2</div>
+	<div id="mybox3">3D Box 3</div>
+
+</div>
+
+<style>
+#stage
+{
+	-webkit-transform-style :preserve-3d;
+	transform-style :preserve-3d;
+	transform:rotateX(-20deg) rotateY(-40deg) ;
+	//transform:rotateY(-20deg); 
+}
+
+#mybox1
+{
+	
+	-webkit-transform:translateZ(0px);
+	transform:translateZ(0px);
+}
+
+#mybox2
+{
+	-webkit-transform:translateZ(-300px);
+	transform:translateZ(-300px);
+}
+
+#mybox3
+{
+	-webkit-transform:translateZ(-800px);
+	transform:translateZ(-800px);
+}
+</style>
+
+</body>
+</html>

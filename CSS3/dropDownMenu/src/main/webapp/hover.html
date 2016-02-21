@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hover</title>
+<style type="text/css">
+	.hoverable{
+		background-color: red;
+		width: 150px;
+		padding: 20px;
+		text-align: center;
+		 
+	}
+	.hoverable:HOVER {
+		background-color: green;
+	}
+	.lists{
+		background-color: #f99;
+		border: 1px solid black;
+	}
+	.list{
+		background-color: #9f9;
+		margin:4px;
+	}
+	.sublists{
+		background-color: #fcc;
+		margin:4px;
+		border: 1px solid black;
+	}
+	.sublist{background-color: #cfc;
+		margin:4px;}
+</style>
+</head>
+<body>
+	
+	<div class="hoverable"  >Siddhanta </div>
+	<hr>
+	<ul class="lists">
+		<li class="list">Item1</li>
+		<li class="list">Item2</li>
+		<li class="list">Item3</li>
+		<li class="list">Item4
+			<ul class="sublists">
+				<li class="sublist">Sub Item1</li>
+				<li class="sublist">Sub Item2</li>
+				<li class="sublist">Sub Item3</li>
+				<li class="sublist">Sub Item4</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

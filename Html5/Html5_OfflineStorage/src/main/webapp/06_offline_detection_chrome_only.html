@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html >
+<body>
+
+  <h3>Online connectivity monitoring: Works only with Chrome</h3>
+
+  <p>
+    Current network status:
+    <span id="status">checking...</span>
+  </p>
+  <ol id="state"></ol>
+
+  <script>
+    var statusElem = document.getElementById('status');
+    var state = document.getElementById('state');
+
+    function displayStatus(event) {
+      statusElem.className = navigator.onLine ? 'online' : 'offline';
+      statusElem.innerHTML = navigator.onLine ? 'online' : 'offline';
+      state.innerHTML += '<li>New event: ' + event.type + '</li>';
+    }
+
+    window.addEventListener('online', displayStatus);
+    window.addEventListener('offline', displayStatus);
+
+    displayStatus({
+      type: 'ready'
+    });
+</script>
+
+</body>
+</html>

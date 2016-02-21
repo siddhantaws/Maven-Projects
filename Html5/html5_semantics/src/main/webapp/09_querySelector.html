@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <style>
+        .myclass {
+        }
+    </style>
+    <script type="text/javascript">
+        function GetmyclassElement () {
+            if (document.querySelector) {
+                var firstmyclass = document.querySelector (".myclass");
+                console.log ("The contents of the first myclass element: " + firstmyclass.innerHTML);
+            }
+            else {
+                console.log ("Your browser does not support the querySelector method.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="GetmyclassElement ()">Get the first myclass element!</button>
+    <br><br>
+    <div class="myclass">First myclass element</div>
+    <div class="myclass">Second myclass element</div>
+    <div class="myclass">Third myclass element</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Html5_OfflineStorage</title>
+</head>
+<body>
+	<h3>
+    Using local storage. Restart the page and you will see the counter value being increamented.
+  </h3>
+  <div id="content"></div>
+  <p id="log" style="color: gray"></p>
+  <script>
+      // Check if the localStorage has "counter" key/valye that was previouly saved
+      if (!localStorage['counter']) {
+        localStorage['counter'] = 0;
+      } else {
+        localStorage['counter']++;
+      }
+      
+      document.querySelector('#content').innerHTML = 
+          'This sample has been run ' + localStorage.getItem('counter') + ' times';
+    </script>
+</body>
+</html>

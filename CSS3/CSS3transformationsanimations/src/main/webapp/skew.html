@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Translate</title>
+<link rel="stylesheet" media="all" href="styles/styles.css" />
+</head>
+<body>
+	<h1>CSS3 2D Transformations</h1>
+
+<div id="mybox">
+<h2>Transformed Element</h2>
+<p>This box will be transformed using CSS3.</p>
+</div>
+
+<p>This text will appear around the box element which is floated to the right.</p>
+
+<p>Remember that a transform only affects the element itself. The space it would have required before the transformation is still used to determine page flow.</p>
+<!-- 
+<style >
+	#mybox{
+			-webkit-transform: skewX(25deg);
+			transform: skewX(25deg);
+			
+	}
+</style>
+ -->
+<style >
+	#mybox{
+			-webkit-transform: skewY(25deg);
+			transform: skewY(25deg);
+			
+	}
+</style>
+</body>
+</html>

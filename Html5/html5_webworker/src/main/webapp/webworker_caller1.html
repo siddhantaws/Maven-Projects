@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h3>Send "Sang Shin" to the worker and then see how the worker responds.</h3>
+  <p>
+    Message from the worker:
+    <output id="message"></output>
+  </p>
+
+  <script>
+    var worker = new Worker('webworker_task1.js');
+
+    worker.addEventListener('message', function(e) {
+      document.getElementById('message').innerHTML = e.data;
+    }, false);
+
+    worker.postMessage('Sang Shin'); // Send data to our worker.
+  </script>
+</body>
+</html>

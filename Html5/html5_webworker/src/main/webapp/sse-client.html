@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Server-Sent Events Servlet example</title>
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<body>
+ 
+	Time: <span id="foo"></span>
+	
+	<br><br>
+	<button onclick="start();">Start</button>
+ 
+	<script>
+	function start() {
+
+
+		var eventSource = new EventSource("WebWorkerServlet");
+		eventSource.onmessage = function(event) {
+			document.getElementById('foo').innerHTML = event.data;
+			console.log("open");
+		};
+		eventSource.open = function(event) {
+			document.getElementById('foo').innerHTML = "Connection is opened" + '<br>';
+			console.log("open");
+		};
+		eventSource.error = function(event) {
+			document.getElementById('foo').innerHTML =  "Connection is closed" + '<br>';
+		};
+	}
+	</script>
+</body>
+</html>

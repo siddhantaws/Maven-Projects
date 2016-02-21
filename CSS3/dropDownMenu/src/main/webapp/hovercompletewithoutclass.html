@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hover</title>
+<style type="text/css">
+	
+	body > ul{
+		background-color: #f99;
+		border: 1px solid black;
+	}
+	body > ul > li{
+		background-color: #9f9;
+		margin:4px;
+	}
+	ul ul{
+		background-color: #fcc;
+		margin:4px;
+		border: 1px solid black;
+		display: none;
+	}
+	 li li{
+			background-color: #cfc;
+		margin:4px;
+		}
+		
+	li:HOVER 
+	{
+		padding-left: 2px;
+	}	
+	li:HOVER  ul{
+	 display: block;
+}
+</style>
+</head>
+<body>
+	
+	
+	<hr>
+	<ul >
+		<li >Item1</li>
+		<li >Item2</li>
+		<li >Item3</li>
+		<li >Item4
+			<ul>
+				<li>Sub Item1</li>
+				<li>Sub Item2</li>
+				<li>Sub Item3</li>
+				<li>Sub Item4</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

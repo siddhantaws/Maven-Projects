@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+    function draw() {
+      var ctx = document.getElementById('canvas').getContext('2d');
+     
+      ctx.shadowOffsetX = 2;
+      ctx.shadowOffsetY = 4;
+      ctx.shadowBlur = 2;
+      ctx.shadowColor = "green";
+      
+      ctx.font = "50px Times New Roman";
+      ctx.fillStyle = "Black";
+      ctx.fillText("JPassion.com", 25, 50);
+    }
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+
+  <body onload="draw();">
+    <canvas id="canvas" width="350" height="150">
+    	Your browser does not support Canvas.
+    </canvas>
+  </body>
+  
+</html>

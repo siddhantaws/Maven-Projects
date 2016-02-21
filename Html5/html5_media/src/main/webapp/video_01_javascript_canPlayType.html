@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>video_01_javascript_canPlayType</title>
+<script>
+		function supportType(e, vidType, codType) {
+			myVid = document.createElement('video');
+			videoFormatToTest = vidType + ';codecs="' + codType + '"';
+			console.log(videoFormatToTest)
+
+			// Check if your browser supports a particular format
+			isSupp = myVid.canPlayType(videoFormatToTest);
+			if (isSupp == "") {
+				isSupp = "No";
+			}
+			e.target.parentNode.innerHTML = "Answer: " + isSupp;
+		}
+  </script>
+</head>
+<body>
+	
+	
+<h3> Click Test buttons to check whether your browser suppports various Video container formats</h3>
+
+<p>Can my browser play MP4 videos? <span>
+<button onclick="supportType(event,'video/mp4','avc1.42E01E, mp4a.40.2')" type="button">Test</button>
+</span></p>
+
+<p>Can my browser play OGG videos? <span>
+<button onclick="supportType(event,'video/ogg','theora, vorbis')" type="button">Test</button>
+</span></p>
+
+<p>Can my browser play WEBM videos? <span>
+<button onclick="supportType(event,'video/webm','vp8, vorbis')" type="button">Test</button>
+</span></p>
+	
+</body>
+</html>

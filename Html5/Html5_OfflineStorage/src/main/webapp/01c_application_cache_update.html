@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html manifest="my_cache1.appcache">
+<head>
+<meta charset="ISO-8859-1">
+<title>Html5_OfflineStorage</title>
+	<link rel="stylesheet" type="text/css" href="css/my_style.css">
+	<script src="js/my_dummy.js"></script>
+	<script>
+	function handleCacheEvent(event)
+	{
+		console.log("MyEvent :"+event.type);
+	}
+	
+	function handleCacheError(event)
+	{
+		console.log('Error: Cache failed to update!');
+	}
+	var appcache = window.applicationCache;
+
+	  appcache.addEventListener('updateready', function(e) {
+	  	if (appcache.status == appcache.UPDATEREADY) {
+	  		appcache.swapCache();
+	  		console.log("appcache.swapCache() is called")
+	  		if (confirm('A new version of this site is available. Load it?')) {
+	  			window.location.reload();
+	  		}
+	  	}
+	  }, false);
+	  appcache.addEventListener('cached',handleCacheEvent,false);
+		// Checking for an update. Always the first event fired in the sequence.
+		appcache.addEventListener('checking',handleCacheEvent,false);
+		// An update was found. The browser is fetching resources.
+		appcache.addEventListener('downloading',handleCacheEvent,false);
+		// The manifest returns 404 or 410, the download failed,
+		// or the manifest changed while the download was in progress.
+		appcache.addEventListener('error',handleCacheError,false);
+		// Fired after the first download of the manifest.
+		appcache.addEventListener('noupdate',handleCacheEvent,false);
+		// Fired for each resource listed in the manifest as it is being fetched.
+		appcache.addEventListener('progress',handleCacheEvent,false);
+		// Fired when the manifest resources have been newly redownloaded.
+		
+	</script>
+</head>
+<body>
+	<h3>
+		You want to try this from a web server. (Run "python -m http.server".) 
+	</h3>
+	<p id="time">
+		<button onclick="getDateTime()">Get Date and Time</button>
+	</p>
+	
+		<img src="images/duke1.jpg" >
+		<img src="images/duke2.jpg" >
+		<img src="images/duke3.jpg" >
+		<img src="images/sangshin.jpg" >
+</body>
+</html>

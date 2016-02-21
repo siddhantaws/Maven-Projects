@@ -1,0 +1,35 @@
+	<!DOCTYPE html>
+<html>
+<body>
+
+<p>Display progress:</p>
+<progress value="52" max="100">Your browser does not support it</progress><br>
+<progress value="75" max="100">3/4 complete</progress><br>
+
+<p>Display meters:</p>
+<meter value="2" min="0" max="10">2 out of 10</meter><br>
+<meter value="0.6">60%</meter><br>
+<meter min="0" max="100" low="40" high="90" optimum="100" value="91">A+</meter><br>
+
+<p>Display menu:</p>
+<menu type="toolbar">
+  <menu label="File">
+   <button type="button" onclick="file_new()">New...</button>
+   <button type="button" onclick="file_open()">Open...</button>
+   <button type="button" onclick="file_save()">Save</button>
+  </menu>
+  <menu label="Edit">
+   <button type="button" onclick="edit_cut()">Cut</button>
+   <button type="button" onclick="edit_copy()">Copy</button>
+   <button type="button" onclick="edit_paste()">Paste</button>
+  </menu>
+</menu>
+
+<p>Display summary and details:</p>
+<details>
+  <summary>HTML 5 summary</summary>
+  This is the details of the HTML5 semantic elements
+</details>
+
+</body>
+</html>

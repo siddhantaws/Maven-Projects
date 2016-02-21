@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Image: Create image</title>
+    <script type="text/javascript">
+      function draw(){
+        var ctx = document.getElementById('canvas').getContext('2d');
+
+        // Create image object from scratch
+        var img = new Image();
+        img.src = 'images/backdrop.png';
+
+        // When this script gets executed, the image starts 
+        // loading. Trying to call drawImage before the image
+        // has finished loading will throw an error in 
+        // Gecko 1.9.2 and earlier, and silently do nothing
+        // in Gecko 2.0 and later.
+        img.onload = function(){
+
+          // Once we have a reference to our source image
+          // object we can use the drawImage method to render
+          // it to the canvas
+          ctx.drawImage(img,0,0);
+
+          // Draw lines
+          ctx.beginPath();
+          ctx.moveTo(30,96);
+          ctx.lineTo(70,66);
+          ctx.lineTo(103,76);
+          ctx.lineTo(170,15);
+          ctx.stroke();
+        };
+      }
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+
+  <body onload="draw();">
+    <canvas id="canvas" width="150" height="150">
+      Your browser does not support Canvas.
+    </canvas>
+  </body>
+  
+</html>

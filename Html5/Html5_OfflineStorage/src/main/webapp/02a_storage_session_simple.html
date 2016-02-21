@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Html5_OfflineStorage</title>
+</head>
+<body>
+<h3>
+    Using session storage. Refresh the page and you will see the counter value being increamented. Open the another tab, and you will see the counter value restarted from 0.
+  </h3>
+  <div id="content"></div>
+  <p id="log" style="color: gray"></p>
+  <script>
+     	if(!sessionStorage['counter'])
+        {
+     		sessionStorage['counter']=0;
+        }
+     	else
+        {
+     		sessionStorage['counter']++;
+        }
+     			
+      document.querySelector('#content').innerHTML = 
+          'This sample has been run ' + sessionStorage.getItem('counter') + ' times';
+    </script>
+</body>
+</html>

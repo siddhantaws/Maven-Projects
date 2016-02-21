@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multi-Level Menu</title>
+	<style>
+	
+	.list,.sublist{padding: 0;margin: 0;list-style: none}
+	.list{background-color: #FCC;padding: 10px;display: inline-table;}
+	.list-item{background-color: #DAA;padding: 20px;font-size: 20px;position: relative;}
+	.list-item:HOVER {
+	background-color: #A88;
+}
+	.sublist{background-color: #B99;display: inline-table;position: absolute;top: 0;left:100%;white-space:nowrap;
+	 display: none;}
+	.sublist-item:FIRST-CHILD{border-top: none;}
+	.sublist .sublist{display: none;}
+	.sublist-item{padding: 4px 16px;border-top: 1px solid #A77;}
+	.sublist-item:HOVER{
+		background-color: #A88;
+}
+	.list-item:HOVER > .sublist{
+	display: block;
+}
+.sublist-item:HOVER > .sublist{
+	display: block; 
+}
+	</style>
+</head>
+<body>
+	<ul class="list">
+		<li class="list-item"><a href="#">Home</a></li>
+		<li class="list-item"><a href="#">About</a>
+				<ul class="sublist">
+					<li class="sublist-item"><a href="#">The Artist</a></li>
+					<li class="sublist-item"><a href="#">The Misic</a></li>
+					<li class="sublist-item"><a href="#">The Records</a></li>
+				</ul>
+		</li>
+		<li class="list-item"><a href="#">Media</a>
+			<ul class="sublist">
+					<li class="sublist-item"><a href="#">Audio Clips</a>
+						<ul class="sublist">
+							<li class="sublist-item"><a href="#">Music</a></li>
+								<ul class="sublist">
+									<li class="sublist-item"><a href="#">Album 1</a></li>
+									<li class="sublist-item"><a href="#">Album 2</a></li>
+									<li class="sublist-item"><a href="#">Album 3</a></li>
+								</ul>
+							<li class="sublist-item"><a href="#">Interview</a></li>
+							<li class="sublist-item"><a href="#">Bloppers</a></li>	
+						</ul>
+					</li>
+					<li class="sublist-item"><a href="#">Video Clips</a></li>
+				</ul>
+		</li>
+		<li class="list-item"><a href="#">Press</a>
+			<ul class="sublist">
+					<li class="sublist-item"><a href="#">Print Material</a></li>
+					<li class="sublist-item"><a href="#">Graphics Material</a></li>
+			</ul>
+		</li>
+		<li class="list-item"><a href="#">Contact</a>
+			<ul class="sublist">
+					<li class="sublist-item"><a href="#">The artist</a></li>
+					<li class="sublist-item"><a href="#">The Publicity Person</a></li>
+					<li class="sublist-item"><a href="#">The Record Label</a></li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

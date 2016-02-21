@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <script type="text/javascript">
+        function ReadCustomData () {
+            // Add new data attributes via JS.
+            var el = document.querySelector('#out');
+            el.setAttribute('data-foo', 'bar');
+
+            var html = [];
+            for (var key in el.dataset) {
+              html.push(key, ': ', el.dataset[key], '<br>');
+            }
+
+            el.innerHTML = html.join('');
+        }
+    </script>
+</head>
+  <body> 
+    <button onclick="ReadCustomData ()">Read custom data!</button>
+    <br /><br />
+    <div id="out" data-id="myId" data-name="Sang Shin" data-screen-name="jpassion"></div>
+  </body>
+</html>

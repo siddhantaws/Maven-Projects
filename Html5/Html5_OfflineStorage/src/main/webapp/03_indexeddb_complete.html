@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>HTML 5 Application - IndexedDb</title>
+	<script type="text/javascript" >
+
+		var localDatabase = {};
+		var dbName = "employeeDb";
+
+		////////////////////////////////////////////////////////////
+		// Get indexedDB object
+		////////////////////////////////////////////////////////////
+
+		localDatabase.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
+		localDatabase.indexedDB.onerror = function(e) {
+			console.log("Database error: " + e.target.errorCode);
+		};
+
+    ////////////////////////////////////////////////////////////
+    // Create new database 
+    ////////////////////////////////////////////////////////////
+    var db_version = 1;
+
+		function createDatabase() {
+			// If no version is specified and a database exists, use the current 
+			// database version and follow the steps for opening a database. If no 
+			// version is specified and no database exists, set database version to 1, 
+			// follow the steps for opening a database, and return a database without 
+			// object stores. 
+			db_version++;
+			console.log("Creating database, db_version = " + db_version);
+
+			// Create a new database with a new version 
+			var openRequest = localDatabase.indexedDB.open(dbName, db_version);
+
+			openRequest.onerror = function(e) {
+				console.log("Database error: " + e.target.errorCode);
+			};
+			openRequest.onsuccess = function(event) {
+				console.log("Database created");
+				localDatabase.db = openRequest.result;
+			};
+			openRequest.onupgradeneeded = function(evt) {
+				console.log('Creating object stores');
+				var employeeStore = evt.currentTarget.result.createObjectStore("employees", {
+					keyPath: "id"
+				});
+				employeeStore.createIndex("stateIndex", "state", {
+					unique: false
+				});
+				employeeStore.createIndex("emailIndex", "email", {
+					unique: true
+				});
+				employeeStore.createIndex("zipIndex", "zip_code", {
+					unique: false
+				});
+			};
+		};
+
+    ////////////////////////////////////////////////////////////
+    // Open the database and configure event handlers
+    ////////////////////////////////////////////////////////////
+    
+		function openDatabase() {
+			console.log("openDatabase() method is entered ");
+			var openRequest = localDatabase.indexedDB.open(dbName);
+			openRequest.onerror = function(e) {
+				console.log("Database error: " + e.target.errorCode);
+			};
+			openRequest.onsuccess = function(event) {
+				localDatabase.db = openRequest.result;
+				console.log("Database opened ");
+			};
+		}
+
+    ////////////////////////////////////////////////////////////
+    // Delete existing database 
+    ////////////////////////////////////////////////////////////
+
+    function deleteDatabase() {
+
+    	console.log('Deleting database');
+    	var deleteDbRequest = localDatabase.indexedDB.deleteDatabase(dbName);
+    	localDatabase.db = null;
+
+   		// Somehow "onsuccess handler does not get called - Sang Shin, 4/2013"
+    	deleteDbRequest.onsuccess = function(event) {
+    		console.log('Old database deleted');
+    		localDatabase.db = null;
+    	};
+    	deleteDbRequest.onerror = function(e) {
+    		console.log("Database error: " + e.target.errorCode);
+    	};
+
+    }
+
+
+    ////////////////////////////////////////////////////////////
+    // Populate database through object store
+    ////////////////////////////////////////////////////////////
+
+		function populateDatabase() {
+			console.log("Populating database");
+			if (!localDatabase.db) {
+				console.log("Database has not been opened");
+				return;
+			}
+
+			var transaction = localDatabase.db.transaction("employees", "readwrite");
+			var store = transaction.objectStore("employees");
+
+			if (localDatabase != null && localDatabase.db != null) {
+				var request = store.put({
+					"id": "E1",
+					"first_name": "Joe",
+					"last_name": "Smith",
+					"email": "joe.smith@somedomain.com",
+					"street": "123 Main Street",
+					"city": "New York",
+					"state": "New York",
+					"zip_code": "10016",
+				});
+				request.onsuccess = function(e) {
+					console.log("Added E1");
+				};
+
+				request.onerror = function(e) {
+					console.log(e.value);
+				};
+
+				request = store.put({
+					"id": "E2",
+					"first_name": "John",
+					"last_name": "Jones",
+					"email": "john.jones@somedomain.com",
+					"street": "999 Main Street",
+					"city": "New York",
+					"state": "New York",
+					"zip_code": "10016",
+				});
+				request.onsuccess = function(e) {
+					console.log("Added E2");
+				};
+
+				request.onerror = function(e) {
+					console.log(e.value);
+				};
+				request = store.put({
+					"id": "E3",
+					"first_name": "John",
+					"last_name": "Adams",
+					"email": "john.adams@somedomain.com",
+					"street": "1 First Street",
+					"city": "San Franciso",
+					"state": "California",
+					"zip_code": "94118",
+				});
+				request.onsuccess = function(e) {
+					console.log("Added E3");
+				};
+
+				request.onerror = function(e) {
+					console.log(e.value);
+				};
+				request = store.put({
+					"id": "E4",
+					"first_name": "Jane",
+					"last_name": "Adams",
+					"email": "jane.adams@somedomain.com",
+					"street": "2 Second Street",
+					"city": "San Franciso",
+					"state": "California",
+					"zip_code": "92101",
+				});
+
+				request.onsuccess = function(e) {
+					console.log("Added E4");
+				};
+
+				request.onerror = function(e) {
+					console.log(e.value);
+				};
+
+				request = store.put({
+					"id": "E5",
+					"first_name": "Jane",
+					"last_name": "Davis",
+					"email": "jane.davis@somedomain.com",
+					"street": "3 Third Street",
+					"city": "San Franciso",
+					"state": "California",
+					"zip_code": "92100",
+				});
+
+				request.onsuccess = function(e) {
+					console.log("Added E5");
+				};
+
+				request.onerror = function(e) {
+					console.log(e.value);
+				};
+			}
+		}
+
+    ////////////////////////////////////////////////////////////
+    // Add a new object to the object store
+    ////////////////////////////////////////////////////////////
+
+		function addEmployee() {
+			console.log("Adding an employee");
+			try {
+				var result = document.getElementById("result");
+				result.innerHTML = "";
+
+				var transaction = localDatabase.db.transaction("employees", "readwrite");
+				var store = transaction.objectStore("employees");
+
+				if (localDatabase != null && localDatabase.db != null) {
+					var request = store.add({
+						"id": "E5",
+						"first_name": "Jane",
+						"last_name": "Doh",
+						"email": "jane.doh@somedomain.com",
+						"street": "123 Pennsylvania Avenue",
+						"city": "Washington D.C.",
+						"state": "DC",
+						"zip_code": "20500",
+					});
+					request.onsuccess = function(e) {
+						result.innerHTML = "Employee record was added successfully.";;
+					};
+
+					request.onerror = function(e) {
+						console.log(e.value);
+						result.innerHTML = "Employee record was not added.";
+					};
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+
+    ////////////////////////////////////////////////////////////
+    // Update an existing object
+    ////////////////////////////////////////////////////////////
+
+		function updateEmployee() {
+			console.log("Updating employee");
+			try {
+				var result = document.getElementById("result");
+				result.innerHTML = "";
+
+				var transaction = localDatabase.db.transaction("employees", "readwrite");
+				var store = transaction.objectStore("employees");
+				var jsonStr;
+				var employee;
+
+				if (localDatabase != null && localDatabase.db != null) {
+
+					store.get("E3").onsuccess = function(event) {
+						employee = event.target.result;
+						// save old value
+						jsonStr = "OLD: " + JSON.stringify(employee);
+						result.innerHTML = jsonStr;
+
+						// update record
+						employee.email = "john.adams@anotherdomain.com";
+
+						var request = store.put(employee);
+
+						request.onsuccess = function(e) {};
+
+						request.onerror = function(e) {
+							console.log(e.value);
+						};
+
+						// fetch record again
+						store.get("E3").onsuccess = function(event) {
+							employee = event.target.result;
+							jsonStr = "<br/>NEW: " + JSON.stringify(employee);
+							result.innerHTML = result.innerHTML + jsonStr;
+						};
+					}; // fetch employee first time
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+
+		////////////////////////////////////////////////////////////
+    // Clear all objects in the object store
+    ////////////////////////////////////////////////////////////
+
+		function clearAllEmployees() {
+			console.log("Clearing all employees");
+			try {
+				var result = document.getElementById("result");
+				result.innerHTML = "";
+
+				if (localDatabase != null && localDatabase.db != null) {
+					var store = localDatabase.db.transaction("employees", "readwrite").objectStore("employees");
+
+					store.clear().onsuccess = function(event) {
+						result.innerHTML = "'Employees' object store cleared";
+					};
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+
+    ////////////////////////////////////////////////////////////
+    // Fetch an object
+    ////////////////////////////////////////////////////////////
+
+		function fetchEmployee() {
+			console.log("Fetching an employee");
+			try {
+				var result = document.getElementById("result");
+				result.innerHTML = "";
+				if (localDatabase != null && localDatabase.db != null) {
+					var store = localDatabase.db.transaction("employees").objectStore("employees");
+					store.get("E3").onsuccess = function(event) {
+						var employee = event.target.result;
+						if (employee == null) {
+							result.innerHTML = "employee not found";
+						} else {
+							var jsonStr = JSON.stringify(employee);
+							result.innerHTML = jsonStr;
+						}
+					};
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+
+    ////////////////////////////////////////////////////////////
+    // Fetch all objects
+    ////////////////////////////////////////////////////////////
+
+		function fetchAllEmployees() {
+			console.log("Fetching all employees");
+			try {
+				var result = document.getElementById("result");
+				result.innerHTML = "";
+
+				if (localDatabase != null && localDatabase.db != null) {
+					var store = localDatabase.db.transaction("employees").objectStore("employees");
+					var request = store.openCursor();
+					request.onsuccess = function(evt) {
+						var cursor = evt.target.result;
+						if (cursor) {
+							var employee = cursor.value;
+							var jsonStr = JSON.stringify(employee);
+							result.innerHTML = result.innerHTML + "<br/>" + jsonStr;
+							cursor.
+							continue ();
+						}
+					};
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+
+    ////////////////////////////////////////////////////////////
+    // Fetch objects that has common key
+    ////////////////////////////////////////////////////////////
+
+		function fetchNewYorkEmployees() {
+			console.log("Updating New York employee");
+			try {
+				var result = document.getElementById("result");
+				result.innerHTML = "";
+
+				if (localDatabase != null && localDatabase.db != null) {
+					var range = IDBKeyRange.only("New York");
+
+					var store = localDatabase.db.transaction("employees").objectStore("employees");
+					var index = store.index("stateIndex");
+
+					index.openCursor(range).onsuccess = function(evt) {
+						var cursor = evt.target.result;
+						if (cursor) {
+							var employee = cursor.value;
+							var jsonStr = JSON.stringify(employee);
+							result.innerHTML = result.innerHTML + "<br/>" + jsonStr;
+							cursor.
+							continue ();
+						}
+					};
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+
+		function fetchEmployeeByEmail() {
+			console.log("Fetching employee by Email");
+			try {
+				var result = document.getElementById("result");
+				result.innerHTML = "";
+
+				if (localDatabase != null && localDatabase.db != null) {
+					var range = IDBKeyRange.only("john.adams@somedomain.com");
+
+					var store = localDatabase.db.transaction("employees").objectStore("employees");
+					var index = store.index("emailIndex");
+
+					index.get(range).onsuccess = function(evt) {
+						var employee = evt.target.result;
+						var jsonStr = JSON.stringify(employee);
+						result.innerHTML = jsonStr;
+					};
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+
+		function fetchEmployeeByZipCode1() {
+			console.log("Fetching employee by Zipcode1");
+			try {
+				var result = document.getElementById("result");
+				result.innerHTML = "";
+
+				if (localDatabase != null && localDatabase.db != null) {
+					var store = localDatabase.db.transaction("employees").objectStore("employees");
+					var index = store.index("zipIndex");
+
+					var range = IDBKeyRange.lowerBound("92000");
+
+					index.openCursor(range).onsuccess = function(evt) {
+						var cursor = evt.target.result;
+						if (cursor) {
+							var employee = cursor.value;
+							var jsonStr = JSON.stringify(employee);
+							result.innerHTML = result.innerHTML + "<br/>" + jsonStr;
+							cursor.
+							continue ();
+						}
+					};
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+
+		function fetchEmployeeByZipCode2() {
+			console.log("Fetching employee by Zipcode2");
+			try {
+				var result = document.getElementById("result");
+				result.innerHTML = "";
+
+				if (localDatabase != null && localDatabase.db != null) {
+					var store = localDatabase.db.transaction("employees").objectStore("employees");
+					var index = store.index("zipIndex");
+
+					var range = IDBKeyRange.upperBound("93000");
+
+					index.openCursor(range).onsuccess = function(evt) {
+						var cursor = evt.target.result;
+						if (cursor) {
+							var employee = cursor.value;
+							var jsonStr = JSON.stringify(employee);
+							result.innerHTML = result.innerHTML + "<br/>" + jsonStr;
+							cursor.
+							continue ();
+						}
+					};
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+</script>
+</head>
+<body>
+	<h3>You have to access this file from the web server.</h3>
+	<button onclick="createDatabase()">Create Database with a new version</button><br>
+	<button onclick="deleteDatabase()">Delete Database</button><br>
+	<button onclick="openDatabase()">Open Database (with current version) </button><br>
+	<br>
+	<button onclick="populateDatabase()">Populate Database</button><br>
+	<button onclick="fetchAllEmployees()">Fetch All Employees</button><br>
+	<button onclick="clearAllEmployees()">Clear All Employees</button><br>
+	<button onclick="fetchEmployee()">Fetch Employee</button><br>
+	<button onclick="updateEmployee()">Update Employee</button><br>
+	<button onclick="addEmployee()">Add Employee</button><br>
+	<br>
+	<button onclick="fetchEmployeeByEmail()">Fetch Employee By Email</button><br>
+	<button onclick="fetchEmployeeByZipCode1()">Fetch Employee By Zip Code 1</button><br>
+	<button onclick="fetchEmployeeByZipCode2()">Fetch Employee By Zip Code 2</button><br>
+	<button onclick="fetchNewYorkEmployees()">Fetch NY Employees</button><br>
+	<div id="result" />
+</body>
+</html>

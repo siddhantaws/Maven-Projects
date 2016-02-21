@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script type="text/javascript">
+      function draw(){
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext){
+          var context = canvas.getContext('2d');
+
+          var x      = 10;
+          var y      = 10;
+          var width  = 100;
+          var height = 100
+          var cx     = x + 0.5 * width;
+          var cy     = y + 0.5 * height;
+
+          context.fillStyle = "green";
+          context.fillRect(x, y, width, height);
+
+          context.translate(cx, cy);
+          context.rotate(45);  
+
+          context.fillStyle = "red";
+          context.fillRect(-0.5 * width, -0.5 * height, width, height);
+          
+        }
+      }
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+
+  <body onload="draw();">
+    <canvas id="canvas" width="250" height="250">
+      Your browser does not support Canvas.
+    </canvas>
+  </body>
+  
+</html>

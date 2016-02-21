@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html manifest="my_cache1.appcache">
+<head>
+<meta charset="ISO-8859-1">
+<title>Html5_OfflineStorage</title>
+<link rel="stylesheet" type="text/css" href="css/my_style.css"></link>
+<script src="js/my_dummy.js"></script>
+</head>
+<body>
+	<h3>
+		You want to try this from a web server. (Run "python -m http.server".) 
+		Go offline, and reload the page. The JavaScript file, CSS file, and the images should still work because they are loaded from cache.
+	</h3>
+	<p id="time">
+		<button onclick="getDateTime()">Get Date and Time</button>
+	</p>
+	<img src="images/duke1.jpg" >
+		<img src="images/duke2.jpg" >
+		<img src="images/duke3.jpg" >
+		<img src="images/sangshin.jpg" >
+</body>
+</html>
