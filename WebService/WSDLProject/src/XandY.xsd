@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/XandY" xmlns:tns="http://www.example.org/XandY" elementFormDefault="qualified">
+
+    <complexType name="XandYType">
+    	<sequence>
+    		<element name="X" type="int"></element>
+    		<element name="Y" type="int"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="XandYGlobal" type="tns:XandYType"></element>
+
+    <element name="GlobalElementAddResult" type="int"></element>
+</schema>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://suryasnata-pc:8080/HelloWebService/HelloWebServiceService?wsdl" uri="xml-resources/web-service-references/HelloWebServiceService/wsdl/suryasnata-pc_8080/HelloWebService/HelloWebServiceService.wsdl"/>
+    <system systemId="http://suryasnata-pc:8080/HelloWebService/HelloWebServiceService?xsd=1" uri="xml-resources/web-service-references/HelloWebServiceService/wsdl/suryasnata-pc_8080/HelloWebService/HelloWebServiceService.xsd_1.xsd"/>
+    <system systemId="http://www.webservicex.net/currencyconvertor.asmx?WSDL" uri="xml-resources/web-service-references/currencyconvertor/wsdl/www.webservicex.net/currencyconvertor.asmx.wsdl"/>
+</catalog>

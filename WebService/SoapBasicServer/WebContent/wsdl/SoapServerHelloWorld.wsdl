@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://server.soap.manh.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://server.soap.manh.com" xmlns:intf="http://server.soap.manh.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://server.soap.manh.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getWebService">
+    <complexType/>
+   </element>
+   <element name="getWebServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="getWebServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getWebServiceResponse">
+
+      <wsdl:part element="impl:getWebServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getWebServiceRequest">
+
+      <wsdl:part element="impl:getWebService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SoapServerHelloWorld">
+
+      <wsdl:operation name="getWebService">
+
+         <wsdl:input message="impl:getWebServiceRequest" name="getWebServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getWebServiceResponse" name="getWebServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SoapServerHelloWorldSoapBinding" type="impl:SoapServerHelloWorld">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getWebService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getWebServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getWebServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SoapServerHelloWorldService">
+
+      <wsdl:port binding="impl:SoapServerHelloWorldSoapBinding" name="SoapServerHelloWorld">
+
+         <wsdlsoap:address location="http://localhost:8081/SoapBasicServer/services/SoapServerHelloWorld"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/myWSDLdocliteral/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="myWSDLdocliteral" targetNamespace="http://www.example.org/myWSDLdocliteral/" xmlns:xsd1="http://www.example.org/XandY">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/myWSDLdocliteral/">
+      <xsd:element name="addNumber">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addNumberResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="http://www.example.org/XandY"
+    		schemaLocation="../bin/XandY.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="addNumberRequest">
+    <wsdl:part name="params" type="xsd1:XandYType"/>
+  </wsdl:message>
+  <wsdl:message name="addNumberResponse">
+    <wsdl:part element="xsd1:GlobalElementAddResult" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="myWSDLdocliteral">
+    <wsdl:operation name="addNumber">
+      <wsdl:input message="tns:addNumberRequest"/>
+      <wsdl:output message="tns:addNumberResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="myWSDLdocliteralSOAP" type="tns:myWSDLdocliteral">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addNumber">
+      <soap:operation soapAction="http://www.example.org/myWSDLdocliteral/addNumber"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="myWSDLdocliteral">
+    <wsdl:port binding="tns:myWSDLdocliteralSOAP" name="myWSDLdocliteralSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
