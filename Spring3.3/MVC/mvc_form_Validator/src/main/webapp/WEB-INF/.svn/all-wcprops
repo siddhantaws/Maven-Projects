@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/spring-samples/!svn/ver/498/mvc-basic/trunk/src/main/webapp/WEB-INF
+END
+urlrewrite.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/spring-samples/!svn/ver/256/mvc-basic/trunk/src/main/webapp/WEB-INF/urlrewrite.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/spring-samples/!svn/ver/256/mvc-basic/trunk/src/main/webapp/WEB-INF/web.xml
+END

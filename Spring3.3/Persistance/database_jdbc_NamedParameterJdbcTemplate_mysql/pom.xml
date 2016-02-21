@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.manh.maven.jdbc</groupId>
+  <artifactId>database_jdbc_NamedParameterJdbcTemplate_mysql</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>database_jdbc_NamedParameterJdbcTemplate_mysql</name>
+    <properties>
+        <org.slf4j-version>1.6.1</org.slf4j-version>
+        <mysql.connector.version>5.1.30</mysql.connector.version>
+        <!-- Apache Commons DBCP -->
+		<apache.commons.dbcp.version>1.4</apache.commons.dbcp.version>
+  </properties>
+  
+   <dependencies>
+  		
+		<!-- Spring Core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.2.12.RELEASE</version>
+		</dependency>
+ 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.2.12.RELEASE</version>
+		</dependency>
+		
+        <!--  Spring Aop dependecy Start -->
+		<!-- AOP -->
+  		<dependency> 
+			<groupId>org.springframework</groupId> 
+			<artifactId>spring-aop</artifactId> 
+			<version>3.2.12.RELEASE</version> 
+		</dependency>
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.7.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.3</version>
+		</dependency>
+		
+		<!--  Spring Aop dependecy End -->
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Apache Commons DBCP -->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${apache.commons.dbcp.version}</version>
+        </dependency>
+		
+        <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.2.7.RELEASE</version>
+		</dependency>
+        <!-- Spring ORM -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>3.2.7.RELEASE</version>
+        </dependency>
+        <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
+		</dependency>
+</dependencies>		
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<configuration>
+  				<source>1.7</source>
+  				<target>1.7</target>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+ </build>
+ 
+  <description>database_jdbc_NamedParameterJdbcTemplate_mysql</description>
+</project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	"
+>
+
+	<!-- Scans the classpath of this application for @Components to deploy as beans -->
+	<context:component-scan base-package="com.manh.spring.mvc.controller" />
+
+	<!-- Application Message Bundle -->
+	<bean 
+	    id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+	>
+		<property name="basename" value="/WEB-INF/messages/messages" />
+		<property name="cacheSeconds" value="0" />
+	</bean>
+
+	<bean id="mybean1" class="com.manh.spring.mvc.model.MySimpleBean1">
+		<property name="city" value="Boston" />
+		<property name="population" value="1000000" />
+	</bean>
+
+	<bean id="mybean2" class="com.manh.spring.mvc.model.MySimpleBean2">
+		<property name="city2" value="Bigger city than #{ mybean1.city }" />
+		<property name="population2" value="#{ mybean1.population + 20000 }" />
+	</bean>
+	
+	<bean id="mybean3" class="com.manh.spring.mvc.model.MySimpleBean3">
+		<property name="city3" value="Smaller city than #{ mybean2.city2 }" />
+		<property name="population3" value="#{ mybean2.population2 - 50000 }" />
+	</bean>
+
+	<!-- Configures Spring MVC -->
+	<import resource="mvc-config.xml" />
+
+</beans>

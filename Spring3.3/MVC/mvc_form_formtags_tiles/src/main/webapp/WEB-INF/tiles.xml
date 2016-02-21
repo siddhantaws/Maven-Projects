@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC 
+    "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd"
+>
+<tiles-definitions>
+
+	<!-- This is a root Tiles definition -->
+	<definition name = "base.definition" template = "/WEB-INF/tiles/layout.jsp">
+		<put-attribute name = "title" value = "" />
+		<put-attribute name = "header" value = "/WEB-INF/tiles/header.jsp" />
+		<put-attribute name = "menu" value = "/WEB-INF/tiles/menu.jsp" />
+		<put-attribute name = "body" value = "" />
+		<put-attribute name = "footer" value = "/WEB-INF/tiles/footer.jsp" />
+	</definition>
+
+	<!-- This is a child Tiles definition extending the "base.definition" parent 
+		definition overriding "title" and "body" parts -->
+	<definition name = "StudentForm" extends = "base.definition">
+		<put-attribute name = "title" value = "Student Form" />
+		<put-attribute name = "body" value = "/WEB-INF/views/StudentForm.jsp" />
+	</definition>
+
+	<!-- This is a child Tiles definition extending the "base.definition" parent 
+		definition overriding "title" and "body" parts -->
+	<definition name = "StudentSuccess" extends = "base.definition">
+		<put-attribute name = "title" value = "Student Sucess" />
+		<put-attribute name = "body" value = "/WEB-INF/views/StudentSuccess.jsp" />
+	</definition>
+
+</tiles-definitions>
