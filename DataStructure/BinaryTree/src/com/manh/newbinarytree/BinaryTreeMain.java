@@ -5,10 +5,10 @@ public class BinaryTreeMain
 	public static void main(String[] args) 
 	{
 		BinaryTree<String> binaryTree=new BinaryTree<>();
-		binaryTree.insert("A");
-		binaryTree.insert("B");
-		binaryTree.insert("C");
-		binaryTree.insert("E");
+		binaryTree.add("A");
+		binaryTree.add("B");
+		binaryTree.add("C");
+		binaryTree.add("E");
 		//binaryTree.insert("D");
 		//System.out.println(binaryTree.count());
 		//System.out.println(binaryTree.getMax());

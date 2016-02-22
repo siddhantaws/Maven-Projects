@@ -5,9 +5,8 @@ import java.util.Stack;
 
 public class BinaryTree<E extends Comparable<E>> 
 {
-	
+
 	private Node root;
-	
 	
 	public Node getRoot() 
 	{
@@ -29,9 +28,9 @@ public class BinaryTree<E extends Comparable<E>>
     }
 	
 	
-	 public void insert(E e)
+	 public void add(E e)
      {
-         root = insert(root, e);
+         root = isEmpty() ? new Node(e) :  insert(e);
      }
 	 
 	 public void levelOrderTraversal()
@@ -60,21 +59,25 @@ public class BinaryTree<E extends Comparable<E>>
  	 }
 	 
 	 
-	 private Node insert(Node node, E e)
+	 private Node insert(E e)
      {
-         if (node == null)
-         {
-        	 node = new Node(e);
-        	
-         }
+		 Node parent;
+		 Node t=root;
+		 int cmp;
+		 Comparable<? super E> k = (Comparable<? super E>) e;
+         do {
+             parent = t;
+             cmp = k.compareTo(e);
+             if (cmp < 0)
+                 t = t.left;
+             else if (cmp > 0)
+                 t = t.right;
+         } while (t != null);
+         if(cmp < 0 )
+        	 parent.setLeft(new Node(e)) ;
          else
-         {
-             if (node.getLeft() == null)
-            	 node.left = insert(node.left, e);     
-             else
-            	 node.right = insert(node.right, e);
-         }
-         return node;
+        	 parent.setRight(new Node(e)) ;
+         return root;
      }  
 	 
 	 public void printAncestor(E e)
@@ -319,6 +322,7 @@ public class BinaryTree<E extends Comparable<E>>
 		}
 		return max;
 	}
+	
 	static class Node<E extends Comparable<E>>  
 	 {    
 	     Node left, right;
