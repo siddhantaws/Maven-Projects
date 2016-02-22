@@ -152,6 +152,52 @@ public class BinaryTree<E extends Comparable<E>>
 		preOrderTraversal(root);
 	}
 	
+	public void preOrderTraversalNonRecursive()
+	{
+		preOrderTraversalNonRecursive(root);
+	}
+	
+	public void inOrderTraversalNonRecursive()
+	{
+		inOrderTraversalNonRecursive(root);
+	}
+	
+	private void inOrderTraversalNonRecursive(Node head)
+	{
+		Stack<Node> nodes=new Stack<>();
+		while(true)
+		{
+			while(head!=null)
+			{
+				nodes.push(head);
+				head = head.getLeft();
+			}
+			if(nodes.isEmpty())
+				break;
+			head= nodes.pop();
+			System.out.println(head.e);
+			head = head.getRight();
+		}
+	}
+	
+	private void preOrderTraversalNonRecursive(Node head)
+	{
+		Stack<Node> nodes=new Stack<>();
+		while(true)
+		{
+			while(head!=null)
+			{
+				System.out.println(head.e);
+				nodes.push(head);
+				head = head.getLeft();
+			}
+			if(nodes.isEmpty())
+				break;
+			head= nodes.pop();
+			head = head.getRight();
+		}
+	}
+	
 	private  void preOrderTraversal(Node head)
 	{
 		if(head!=null)
