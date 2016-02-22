@@ -67,7 +67,7 @@ public class BinaryTree<E extends Comparable<E>>
 		 Comparable<? super E> k = (Comparable<? super E>) e;
          do {
              parent = t;
-             cmp = k.compareTo(e);
+             cmp = k.compareTo((E)t.e);
              if (cmp < 0)
                  t = t.left;
              else if (cmp > 0)
@@ -145,6 +145,51 @@ public class BinaryTree<E extends Comparable<E>>
 	public int height()
 	{
 		return heightIterative(root);
+	}
+	
+	public void preOrderTraversal()
+	{
+		preOrderTraversal(root);
+	}
+	
+	private  void preOrderTraversal(Node head)
+	{
+		if(head!=null)
+		{
+			System.out.println(head.e);
+			preOrderTraversal(head.left);
+			preOrderTraversal(head.right);
+		}
+	}
+	
+	public void inOrderTraversal()
+	{
+		inOrderTraversal(root);
+	}
+	
+	public void postOrderTraversal()
+	{
+		postOrderTraversal(root);
+	}
+	
+	private void postOrderTraversal(Node head)
+	{
+		if(head!=null)
+		{
+			postOrderTraversal(head.left);
+			postOrderTraversal(head.right);
+			System.out.println(head.e);
+		}
+	}
+	
+	private void inOrderTraversal(Node head)
+	{
+		if(head!=null)
+		{
+			inOrderTraversal(head.left);
+			System.out.println(head.e);
+			inOrderTraversal(head.right);
+		}
 	}
 	
 	protected int heightIterative(Node<E> node)
