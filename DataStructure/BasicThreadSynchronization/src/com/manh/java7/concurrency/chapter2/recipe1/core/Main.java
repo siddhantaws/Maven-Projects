@@ -15,6 +15,7 @@ public class Main {
 	 * Main method of the example
 	 * @param args
 	 */
+	
 	public static void main(String[] args) {
 		// Creates a new account ...
 		Account	account=new Account();
