@@ -83,22 +83,19 @@ public class CustomerResource
 
 
       Response.ResponseBuilder builder = request.evaluatePreconditions(tag);
-      if (builder != null)
+      if (builder != null) 
       {
-         System.out.println("** revalidation on the server was successful");
-         builder.cacheControl(cc);
-         return builder.build();
+    	  builder.cacheControl(cc);
+    	  return builder.build();
       }
 
-
       // Preconditions not met!
-
-      cust.setLastViewed(new Date().toString());
       builder = Response.ok(cust, "application/xml");
       cc.setPrivate(true);
       builder.cacheControl(cc);
       builder.tag(tag);
       return builder.build();
+      
    }
 
 
