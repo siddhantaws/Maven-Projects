@@ -8,6 +8,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import javax.annotation.security.DenyAll;
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Encoded;
 import javax.ws.rs.GET;
@@ -17,7 +20,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.core.StreamingOutput;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -41,8 +46,16 @@ public class CustomerResource {
 
    @POST
    @Consumes("application/xml")
-   public Response createCustomer(InputStream is) {
-      Customer customer = readCustomer(is);
+   @DenyAll
+   public Response createCustomer(InputStream is,@Context SecurityContext context) {
+	   if(context.isUserInRole("SIDD"))
+	   {
+		   System.out.println("User Has Role");
+	   }else
+	   {
+		   System.out.println("User Has not in  Role");
+	   }
+      Customer customer =new Customer();
       customer.setId(idCounter.incrementAndGet());
       customerDB.put(customer.getId(), customer);
       System.out.println("Created customer " + customer.getId());
